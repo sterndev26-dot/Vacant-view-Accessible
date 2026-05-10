@@ -1,0 +1,669 @@
+# German translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#  <stc@development>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-27 16:22+0300\n"
+"PO-Revision-Date: 2025-07-27 23:02+0300\n"
+"Last-Translator:  <stc@development>\n"
+"Language-Team: German <translation-team-de@lists.sourceforge.net>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: tests/test_ports.py:40
+msgid ""
+"Initializing devices...\n"
+"Please wait"
+msgstr ""
+"Geräte werden initialisiert...\n"
+"Bitte warten"
+
+#: ui/gui_app.py:120
+msgid "MEN INDICATOR"
+msgstr "MÄNNER-INDIKATOR"
+
+#: ui/gui_app.py:122
+msgid "WOMEN INDICATOR"
+msgstr "FRAUEN-INDIKATOR"
+
+#: ui/gui_app.py:124
+msgid "MEN TOTAL"
+msgstr "GESAMT MÄNNER"
+
+#: ui/gui_app.py:126
+msgid "WOMEN TOTAL"
+msgstr "GESAMT FRAUEN"
+
+#: ui/gui_app.py:128
+msgid "Accessible_Panel_Men"
+msgstr "Barrierefreies Panel Männer"
+
+#: ui/gui_app.py:130
+msgid "Accessible Panel Women"
+msgstr "Barrierefreies Panel Frauen"
+
+#: ui/gui_app.py:132
+msgid "Accessible Vacant Indicator Men"
+msgstr "Barrierefreier Frei-Indikator Männer"
+
+#: ui/gui_app.py:134
+msgid "Accessible Vacant Indicator Women"
+msgstr "Barrierefreier Frei-Indikator Frauen"
+
+#: ui/gui_app.py:136
+msgid "Accessible Occup Indicator Men"
+msgstr "Barrierefreier Belegt-Indikator Männer"
+
+#: ui/gui_app.py:138
+msgid "Accessible Occup Indicator Women"
+msgstr "Barrierefreier Belegt-Indikator Frauen"
+
+#: ui/gui_app.py:503
+msgid ""
+"NO CONNECTION\n"
+"CHECK CONNECTIONS"
+msgstr ""
+"KEINE VERBINDUNG\n"
+"VERBINDUNGEN ÜBERPRÜFEN"
+
+#: ui/context_menu/context_menu.py:59
+msgid "Line length (≥10 px):"
+msgstr "Linienlänge (≥10 px):"
+
+#: ui/context_menu/context_menu.py:76
+msgid "OK"
+msgstr "OK"
+
+#: ui/context_menu/context_menu.py:354
+msgid "Empty"
+msgstr "Leer"
+
+#: ui/context_menu/context_menu.py:498
+msgid "Hidden Elements"
+msgstr "Versteckte Elemente"
+
+#: ui/context_menu/context_menu.py:502 ui/context_menu/context_menu.py:523
+#: ui/context_menu/context_menu.py:545 ui/context_menu/context_menu.py:800
+#: ui/context_menu/context_menu.py:815
+msgid "Scale ( + )"
+msgstr "Skalieren ( + )"
+
+#: ui/context_menu/context_menu.py:503 ui/context_menu/context_menu.py:524
+#: ui/context_menu/context_menu.py:546 ui/context_menu/context_menu.py:801
+#: ui/context_menu/context_menu.py:816
+msgid "Scale ( - )"
+msgstr "Skalieren ( - )"
+
+#: ui/context_menu/context_menu.py:506 ui/context_menu/context_menu.py:527
+#: ui/context_menu/context_menu.py:767
+msgid "Set Width"
+msgstr "Breite festlegen"
+
+#: ui/context_menu/context_menu.py:507 ui/context_menu/context_menu.py:528
+#: ui/context_menu/context_menu.py:768
+msgid "Line Width"
+msgstr "Linienbreite"
+
+#: ui/context_menu/context_menu.py:510 ui/context_menu/context_menu.py:531
+#: ui/context_menu/context_menu.py:763 ui/context_menu/context_menu.py:896
+msgid "Set Line Color"
+msgstr "Linienfarbe festlegen"
+
+#: ui/context_menu/context_menu.py:512 ui/context_menu/context_menu.py:533
+#: ui/context_menu/context_menu.py:764 ui/context_menu/context_menu.py:897
+msgid "Line Color Schema"
+msgstr "Farbchema der Linie"
+
+#: ui/context_menu/context_menu.py:515 ui/context_menu/context_menu.py:536
+msgid "Hide Panel"
+msgstr "Panel ausblenden"
+
+#: ui/context_menu/context_menu.py:551 ui/context_menu/context_menu.py:850
+msgid "Disable Progress Animation"
+msgstr "Fortschrittsanimation deaktivieren"
+
+#: ui/context_menu/context_menu.py:553 ui/context_menu/context_menu.py:560
+#: ui/context_menu/context_menu.py:852 ui/context_menu/context_menu.py:859
+msgid "Set Status Color"
+msgstr "Statusfarbe festlegen"
+
+#: ui/context_menu/context_menu.py:555 ui/context_menu/context_menu.py:854
+msgid "Set Progress Status Color"
+msgstr "Fortschrittsstatusfarbe festlegen"
+
+#: ui/context_menu/context_menu.py:559 ui/context_menu/context_menu.py:858
+msgid "Enable Progress Animation"
+msgstr "Fortschrittsanimation aktivieren"
+
+#: ui/context_menu/context_menu.py:563 ui/context_menu/context_menu.py:862
+msgid "Set Outer Ring Status Color"
+msgstr "Statusfarbe äußerer Ring festlegen"
+
+#: ui/context_menu/context_menu.py:564 ui/context_menu/context_menu.py:864
+msgid "Set Indicator Background Color"
+msgstr "Hintergrundfarbe des Indikators festlegen"
+
+#: ui/context_menu/context_menu.py:565 ui/context_menu/context_menu.py:865
+msgid "Set Number Color"
+msgstr "Zahlfarbe festlegen"
+
+#: ui/context_menu/context_menu.py:567 ui/context_menu/context_menu.py:867
+msgid "Status Color Scheme"
+msgstr "Statusfarbschema"
+
+#: ui/context_menu/context_menu.py:570
+msgid "Hide Ring"
+msgstr "Ring ausblenden"
+
+#: ui/context_menu/context_menu.py:573
+msgid "Set Indicator Font"
+msgstr "Indikator-Schriftart festlegen"
+
+#: ui/context_menu/context_menu.py:574
+msgid "Set Indicator Font Size"
+msgstr "Indikator-Schriftgröße festlegen"
+
+#: ui/context_menu/context_menu.py:575
+msgid "Set Indicator Font Style"
+msgstr "Indikator-Schriftstil festlegen"
+
+#: ui/context_menu/context_menu.py:578 ui/context_menu/context_menu.py:585
+msgid "Set Indicator Shape ( Square )"
+msgstr "Indikatorform festlegen (Quadrat)"
+
+#: ui/context_menu/context_menu.py:579 ui/context_menu/context_menu.py:582
+msgid "Set Indicator Shape ( Rounded )"
+msgstr "Indikatorform festlegen (Abgerundet)"
+
+#: ui/context_menu/context_menu.py:581 ui/context_menu/context_menu.py:584
+msgid "Set Indicator Shape ( Circle )"
+msgstr "Indikatorform festlegen (Kreis)"
+
+#: ui/context_menu/context_menu.py:587
+msgid "Numerical Status Indicators"
+msgstr "Numerische Statusanzeigen"
+
+#: ui/context_menu/context_menu.py:593
+msgid "Export"
+msgstr "Exportieren"
+
+#: ui/context_menu/context_menu.py:594
+msgid "Import"
+msgstr "Importieren"
+
+#: ui/context_menu/context_menu.py:595 ui/context_menu/context_menu.py:876
+msgid "Save"
+msgstr "Speichern"
+
+#: ui/context_menu/context_menu.py:596 ui/context_menu/context_menu.py:877
+msgid "Restore to Default"
+msgstr "Auf Standard zurücksetzen"
+
+#: ui/context_menu/context_menu.py:597 ui/context_menu/context_menu.py:882
+msgid "View Mode Settings"
+msgstr "Anzeigeeinstellungen"
+
+#: ui/context_menu/context_menu.py:600
+msgid "Man Restroom"
+msgstr "Herren-Toilette"
+
+#: ui/context_menu/context_menu.py:601
+msgid "Man with Accessible Restroom"
+msgstr "Herren-Toilette mit barrierefreiem Zugang"
+
+#: ui/context_menu/context_menu.py:602
+msgid "Woman Restroom"
+msgstr "Damen-Toilette"
+
+#: ui/context_menu/context_menu.py:603
+msgid "Woman with Accessible Restroom"
+msgstr "Damen-Toilette mit barrierefreiem Zugang"
+
+#: ui/context_menu/context_menu.py:604
+msgid "Family Restroom"
+msgstr "Familien-Toilette"
+
+#: ui/context_menu/context_menu.py:605
+msgid "Family with Accessible Restroom"
+msgstr "Familien-Toilette mit barrierefreiem Zugang"
+
+#: ui/context_menu/context_menu.py:606
+msgid "Custom"
+msgstr "Benutzerdefiniert"
+
+#: ui/context_menu/context_menu.py:607
+msgid "Change View Mode"
+msgstr "Ansichtsmodus ändern"
+
+#: ui/context_menu/context_menu.py:610
+msgid "Fullscreen Mode"
+msgstr "Vollbildmodus"
+
+#: ui/context_menu/context_menu.py:611
+msgid "Exit Fullscreen"
+msgstr "Vollbildmodus verlassen"
+
+#: ui/context_menu/context_menu.py:613
+msgid "Display Modes"
+msgstr "Anzeigemodi"
+
+#: ui/context_menu/context_menu.py:618
+#, python-brace-format
+msgid "Grid Step: {0} px"
+msgstr "Rasterabstand: {0} px"
+
+#: ui/context_menu/context_menu.py:619
+msgid "Enable Dragging"
+msgstr "Ziehen aktivieren"
+
+#: ui/context_menu/context_menu.py:621
+msgid "Disable Dragging"
+msgstr "Ziehen deaktivieren"
+
+#: ui/context_menu/context_menu.py:624
+msgid "Languages"
+msgstr "Sprachen"
+
+#: ui/context_menu/context_menu.py:626
+msgid "English"
+msgstr "Englisch"
+
+#: ui/context_menu/context_menu.py:627
+msgid "Español"
+msgstr "Spanisch"
+
+#: ui/context_menu/context_menu.py:628
+msgid "Français"
+msgstr "Französisch"
+
+#: ui/context_menu/context_menu.py:629
+msgid "Deutsch"
+msgstr "Deutsch"
+
+#: ui/context_menu/context_menu.py:633
+msgid "Additional header: On"
+msgstr "Zusätzlicher Kopfbereich: Ein"
+
+#: ui/context_menu/context_menu.py:646
+msgid "Additional header: Off"
+msgstr "Zusätzlicher Kopfbereich: Aus"
+
+#: ui/context_menu/context_menu.py:660
+msgid "Change Background Image"
+msgstr "Hintergrundbild ändern"
+
+#: ui/context_menu/context_menu.py:661
+msgid "Change Logo "
+msgstr "Logo ändern"
+
+#: ui/context_menu/context_menu.py:668
+#, python-brace-format
+msgid "Change Background Image USB - {0}"
+msgstr "Hintergrundbild ändern USB - {0}"
+
+#: ui/context_menu/context_menu.py:672
+#, python-brace-format
+msgid "Change Logo USB - {0}"
+msgstr "Logo ändern USB - {0}"
+
+#: ui/context_menu/context_menu.py:676
+msgid "Image Handling"
+msgstr "Bildverarbeitung"
+
+#: ui/context_menu/context_menu.py:678
+msgid "Change Background Color"
+msgstr "Hintergrundfarbe ändern"
+
+#: ui/context_menu/context_menu.py:683 ui/context_menu/context_menu.py:716
+#: ui/context_menu/context_menu.py:735 ui/context_menu/context_menu.py:792
+#: ui/context_menu/context_menu.py:890 ui/context_menu/context_menu.py:905
+msgid "Set Text Color"
+msgstr "Textfarbe festlegen"
+
+#: ui/context_menu/context_menu.py:684 ui/context_menu/context_menu.py:717
+#: ui/context_menu/context_menu.py:736 ui/context_menu/context_menu.py:891
+msgid "Text Color Schema"
+msgstr "Textfarbschema"
+
+#: ui/context_menu/context_menu.py:687 ui/context_menu/context_menu.py:723
+#: ui/context_menu/context_menu.py:748 ui/context_menu/context_menu.py:789
+#: ui/context_menu/context_menu.py:902
+msgid "Change Font"
+msgstr "Schriftart ändern"
+
+#: ui/context_menu/context_menu.py:688 ui/context_menu/context_menu.py:724
+#: ui/context_menu/context_menu.py:749 ui/context_menu/context_menu.py:790
+#: ui/context_menu/context_menu.py:903
+msgid "Change Size"
+msgstr "Größe ändern"
+
+#: ui/context_menu/context_menu.py:689 ui/context_menu/context_menu.py:725
+#: ui/context_menu/context_menu.py:750 ui/context_menu/context_menu.py:791
+#: ui/context_menu/context_menu.py:904
+msgid "Change Font Style"
+msgstr "Schriftstil ändern"
+
+#: ui/context_menu/context_menu.py:692 ui/context_menu/context_menu.py:785
+#: ui/context_menu/context_menu.py:901
+msgid "Change Text"
+msgstr "Text ändern"
+
+#: ui/context_menu/context_menu.py:704 ui/context_menu/context_menu.py:708
+#: admin/utils/user_editor.py:157
+msgid "Hide"
+msgstr "Ausblenden"
+
+#: ui/context_menu/context_menu.py:710 ui/context_menu/context_menu.py:727
+#: ui/context_menu/context_menu.py:752
+msgid "Font"
+msgstr "Schriftart"
+
+#: ui/context_menu/context_menu.py:720 ui/context_menu/context_menu.py:740
+msgid "Hide Indicator"
+msgstr "Indikator ausblenden"
+
+#: ui/context_menu/context_menu.py:760
+msgid "Set Length"
+msgstr "Länge festlegen"
+
+#: ui/context_menu/context_menu.py:771
+msgid "Hide Line"
+msgstr "Linie ausblenden"
+
+#: ui/context_menu/context_menu.py:774
+msgid "Make Line Horizontal"
+msgstr "Linie horizontal ausrichten"
+
+#: ui/context_menu/context_menu.py:776
+msgid "Make Line Vertical"
+msgstr "Linie vertikal ausrichten"
+
+#: ui/context_menu/context_menu.py:802
+msgid "Set figure size"
+msgstr "Figurgröße festlegen"
+
+#: ui/context_menu/context_menu.py:806
+msgid "Hide Men Figure"
+msgstr "Männer-Figur ausblenden"
+
+#: ui/context_menu/context_menu.py:808
+msgid "Hide Women Figure"
+msgstr "Frauen-Figur ausblenden"
+
+#: ui/context_menu/context_menu.py:810 ui/context_menu/context_menu.py:822
+#: ui/context_menu/context_menu.py:909
+msgid "Set Color"
+msgstr "Farbe festlegen"
+
+#: ui/context_menu/context_menu.py:814
+msgid "Hide Logo"
+msgstr "Logo ausblenden"
+
+#: ui/context_menu/context_menu.py:828
+msgid "Change Logo Image"
+msgstr "Logo-Bild ändern"
+
+#: ui/context_menu/context_menu.py:833
+msgid "Unblock Communications"
+msgstr "Kommunikation entsperren"
+
+#: ui/context_menu/context_menu.py:836
+msgid "Block Communications"
+msgstr "Kommunikation sperren"
+
+#: ui/context_menu/context_menu.py:839 ui/context_menu/context_menu.py:914
+msgid "Close Menu"
+msgstr "Menü schließen"
+
+#: ui/context_menu/context_menu.py:840 ui/context_menu/context_menu.py:915
+msgid "Exit"
+msgstr "Beenden"
+
+#: ui/context_menu/functions/branding_images.py:18
+msgid "Icon"
+msgstr "Symbol"
+
+#: ui/context_menu/functions/branding_images.py:71
+msgid "Select a File"
+msgstr "Datei auswählen"
+
+#: ui/context_menu/functions/status_color_scheme.py:55
+msgid "Select Color"
+msgstr "Farbe auswählen"
+
+#: ui/context_menu/functions/status_color_scheme.py:66
+msgid "Choose a color:"
+msgstr "Wählen Sie eine Farbe:"
+
+#: ui/context_menu/functions/status_color_scheme.py:75
+#, python-brace-format
+msgid "Last: {0}"
+msgstr "Letzte: {0}"
+
+#: ui/context_menu/functions/status_color_scheme.py:135
+msgid "System Dialog"
+msgstr "Systemdialog"
+
+#: ui/context_menu/functions/status_color_scheme.py:136
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: admin/admin_auth.py:18 admin/admin_auth.py:30
+msgid "Authentication"
+msgstr "Authentifizierung"
+
+#: admin/admin_auth.py:32
+msgid "Select Mode:"
+msgstr "Modus auswählen:"
+
+#: admin/admin_auth.py:40
+msgid "Password:"
+msgstr "Passwort:"
+
+#: admin/admin_auth.py:54
+#, python-brace-format
+msgid "Success."
+msgstr "Erfolgreich."
+
+#: admin/admin_auth.py:58
+msgid "Wrong password. Try again."
+msgstr "Falsches Passwort. Bitte erneut versuchen."
+
+#: admin/admin_auth.py:71
+msgid "Login"
+msgstr "Anmelden"
+
+#: admin/pin_entry.py:16
+msgid "Enter PIN"
+msgstr "PIN eingeben"
+
+#: admin/pin_entry.py:31
+msgid "Enter PIN code:"
+msgstr "PIN-Code eingeben:"
+
+#: admin/pin_entry.py:51
+msgid "PIN accepted"
+msgstr "PIN akzeptiert"
+
+#: admin/pin_entry.py:55
+msgid "Invalid PIN."
+msgstr "Ungültige PIN."
+
+#: admin/pin_entry.py:60
+msgid "Invalid PIN. Enter 4 digits."
+msgstr "Ungültige PIN. Bitte 4 Ziffern eingeben."
+
+#: admin/utils/user_editor.py:23
+msgid "Admin Settings"
+msgstr "Administrator-Einstellungen"
+
+#: admin/utils/user_editor.py:32
+msgid "Menu"
+msgstr "Menü"
+
+#: admin/utils/user_editor.py:57
+msgid "Security Settings"
+msgstr "Sicherheitseinstellungen"
+
+#: admin/utils/user_editor.py:61
+msgid "Select user:"
+msgstr "Benutzer auswählen:"
+
+#: admin/utils/user_editor.py:95
+msgid "Password cannot contain spaces."
+msgstr "Passwort darf keine Leerzeichen enthalten."
+
+#: admin/utils/user_editor.py:98
+msgid "Password too long (max 16 characters)."
+msgstr "Passwort zu lang (max. 16 Zeichen)."
+
+#: admin/utils/user_editor.py:157 admin/utils/user_editor.py:159
+msgid "Show"
+msgstr "Anzeigen"
+
+#: admin/utils/user_editor.py:161
+msgid "Confirm Password"
+msgstr "Passwort bestätigen"
+
+#: admin/utils/user_editor.py:162
+msgid "Confirm Access Code"
+msgstr "Zugangscode bestätigen"
+
+#: admin/utils/user_editor.py:178
+msgid "Password changed successfully."
+msgstr "Passwort erfolgreich geändert."
+
+#: admin/utils/user_editor.py:182
+msgid "Password too short or invalid."
+msgstr "Passwort zu kurz oder ungültig."
+
+#: admin/utils/user_editor.py:190
+msgid "Access Code updated."
+msgstr "Zugangscode aktualisiert."
+
+#: admin/utils/user_editor.py:194
+msgid "Code must be up to 4 digits."
+msgstr "Code darf maximal 4 Ziffern enthalten."
+
+#: admin/utils/user_editor.py:202
+msgid "Change Password"
+msgstr "Passwort ändern"
+
+#: admin/utils/user_editor.py:205
+msgid "Enter new password:"
+msgstr "Neues Passwort eingeben:"
+
+#: admin/utils/user_editor.py:219
+msgid "Change Access Code"
+msgstr "Zugangscode ändern"
+
+#: admin/utils/user_editor.py:222
+msgid "Enter new access code:"
+msgstr "Neuen Zugangscode eingeben:"
+
+#: admin/utils/user_editor.py:239
+msgid "System Information"
+msgstr "Systeminformationen"
+
+#: admin/utils/user_editor.py:248
+msgid "Organization Details"
+msgstr "Organisationsdetails"
+
+#: admin/utils/user_editor.py:249
+msgid "Organization Name:"
+msgstr "Name der Organisation:"
+
+#: admin/utils/user_editor.py:253
+msgid "Organization ID:"
+msgstr "Organisations-ID:"
+
+#: admin/utils/user_editor.py:263 admin/utils/user_editor.py:474
+msgid "File Management"
+msgstr "Dateiverwaltung"
+
+#: admin/utils/user_editor.py:288
+msgid "Source:"
+msgstr "Quelle:"
+
+#: admin/utils/user_editor.py:344
+msgid "No storage device found"
+msgstr "Kein Speichermedium gefunden"
+
+#: admin/utils/user_editor.py:434
+msgid "Copy to system folder"
+msgstr "In Systemordner kopieren"
+
+#: admin/utils/user_editor.py:469
+msgid "Edit Mode"
+msgstr "Bearbeitungsmodus"
+
+#: admin/utils/user_editor.py:470
+msgid "Security"
+msgstr "Sicherheit"
+
+#: admin/utils/user_editor.py:472
+msgid "System Info"
+msgstr "Systeminfo"
+
+#: admin/utils/user_editor.py:473
+msgid "Organization"
+msgstr "Organisation"
+
+#: admin/utils/user_editor.py:475
+msgid "Exit to OS"
+msgstr "Zum Betriebssystem zurückkehren"
+
+#: ui/gui_elements.py:36 ui/gui_elements.py:44 ui/gui_elements.py:49
+#: ui/gui_elements.py:50 ui/gui_elements.py:82
+msgid "TOTAL"
+msgstr "GESAMT"
+
+#: ui/gui_elements.py:37 ui/gui_elements.py:43 ui/gui_elements.py:55
+#: ui/gui_elements.py:56 ui/gui_elements.py:64 ui/gui_elements.py:66
+msgid "OCCUPIED"
+msgstr "BESETZT"
+
+#: ui/gui_elements.py:38 ui/gui_elements.py:42 ui/gui_elements.py:52
+#: ui/gui_elements.py:53 ui/gui_elements.py:63 ui/gui_elements.py:65
+msgid "VACANT"
+msgstr "FREI"
+
+#: ui/gui_elements.py:47 ui/gui_elements.py:59
+msgid "WC IS BEING CLEANED, PLEASE USE WC IN FLOOR #1 ADD"
+msgstr "WC WIRD GEREINIGT, BITTE WC IM STOCKWERK #1 VERWENDEN (ZUSATZ)"
+
+#: ui/gui_elements.py:58
+msgid "WC IS BEING CLEANED, PLEASE USE WC IN FLOOR #2 ADD"
+msgstr "WC WIRD GEREINIGT, BITTE WC IM STOCKWERK #2 VERWENDEN (ZUSATZ)"
+
+#: ui/gui_elements.py:62
+msgid "WASHROOM OCCUPANCY"
+msgstr "WC-BELEGUNG"
+
+#: ui/gui_elements.py:72 ui/gui_elements.py:75
+msgid "WC IS BEING CLEANED, PLEASE USE WC IN FLOOR #1"
+msgstr "WC WIRD GEREINIGT, BITTE WC IM STOCKWERK #1 VERWENDEN"
+
+#: ui/gui_elements.py:74
+msgid "WC IS BEING CLEANED, PLEASE USE WC IN FLOOR #2"
+msgstr "WC WIRD GEREINIGT, BITTE WC IM STOCKWERK #2 VERWENDEN"
+
+#: ui/gui_elements.py:76
+msgid "CUSTOM TEXT"
+msgstr "BENUTZERDEFINIERTER TEXT"
+
+msgid "Force use current mode"
+msgstr "Erzwinge Nutzung des aktuellen Modus"
+
+msgid "Adapt viewing mode"
+msgstr "Anzeige-Modus anpassen"
+
+msgid "Save and adapt resolution"
+msgstr "Auflösung speichern und anpassen"

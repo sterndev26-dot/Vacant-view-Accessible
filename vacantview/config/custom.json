@@ -1,0 +1,3417 @@
+{
+  "resolution": [
+    1920,
+    1080
+  ],
+  "canvas_items": [
+    {
+      "type": "rectangle",
+      "coords": [
+        0.0,
+        0.0,
+        1920.0,
+        1080.0
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "#00436e",
+        "offset": "0,0",
+        "outline": "#00436e",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "background current",
+        "width": "1.0"
+      }
+    },
+    {
+      "type": "image",
+      "coords": [
+        918.0,
+        878.0
+      ],
+      "options": {
+        "activeimage": "",
+        "anchor": "nw",
+        "disabledimage": "",
+        "image": "pyimage33",
+        "state": "",
+        "tags": "logo",
+        "file": "logo"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        303.3164621640003,
+        790.0693792299999,
+        542.6481528005002,
+        790.0693792299999
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "accessible_panel_men",
+        "width": "4.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        303.3164621640003,
+        884.3872868700003,
+        542.6481528005002,
+        884.3872868700003
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "accessible_panel_men",
+        "width": "4.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        279.73698525400005,
+        813.6488561400001,
+        279.73698525400005,
+        860.80780996
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "accessible_panel_men",
+        "width": "4.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        566.2276297105,
+        813.6488561400001,
+        566.2276297105,
+        860.80780996
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "accessible_panel_men",
+        "width": "4.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        279.73698525400005,
+        790.0693792299999,
+        326.8959390740001,
+        837.2283330500001
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "90.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "90.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "accessible_panel_men",
+        "width": "4.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        519.0686758905006,
+        790.0693792299999,
+        566.2276297105,
+        837.2283330500001
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "90.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "0.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "accessible_panel_men",
+        "width": "4.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        519.0686758905006,
+        837.2283330500001,
+        566.2276297105,
+        884.3872868700003
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "90.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "270.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "accessible_panel_men",
+        "width": "4.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        279.73698525400005,
+        837.2283330500001,
+        326.8959390740001,
+        884.3872868700003
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "90.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "180.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "accessible_panel_men",
+        "width": "4.0"
+      }
+    },
+    {
+      "type": "rectangle",
+      "coords": [
+        291.5267237090002,
+        801.859117685,
+        374.05489289399975,
+        872.597548415
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "accessible_panel_men accessible_icon",
+        "width": "1.0"
+      }
+    },
+    {
+      "type": "image",
+      "coords": [
+        332.0,
+        837.0
+      ],
+      "options": {
+        "activeimage": "",
+        "anchor": "center",
+        "disabledimage": "",
+        "image": "pyimage31",
+        "state": "",
+        "tags": "vacantview/./assets/images/Logo/logo_accessible_2.png accessible_panel_men accessible_icon_image_men",
+        "file": "vacantview/./assets/images/Logo/logo_accessible_2.png",
+        "tag": "accessible_panel_men",
+        "marker": "accessible_icon_image_men"
+      }
+    },
+    {
+      "type": "rectangle",
+      "coords": [
+        385.8446313489999,
+        801.859117685,
+        464.24639207475,
+        872.597548415
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "green",
+        "offset": "0,0",
+        "outline": "",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "accessible_vacant accessible_panel_men",
+        "width": "1.0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        423.57179440500005,
+        837.2283330500001
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 25 bold",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "accessible_vacant_indicator_men accessible_panel_men",
+        "text": "0",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "rectangle",
+      "coords": [
+        476.0361305297497,
+        801.859117685,
+        554.4378912555003,
+        872.597548415
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "red",
+        "offset": "0,0",
+        "outline": "",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "accessible_occup accessible_panel_men",
+        "width": "1.0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        513.173806663,
+        837.2283330500001
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 25 bold",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "accessible_occup_indicator_men accessible_panel_men",
+        "text": "0",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        1387.3164621640005,
+        789.0693792299999,
+        1626.6481528005004,
+        789.0693792299999
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "accessible_panel_women",
+        "width": "4.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        1387.3164621640005,
+        883.3872868700003,
+        1626.6481528005004,
+        883.3872868700003
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "accessible_panel_women",
+        "width": "4.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        1363.7369852539998,
+        812.6488561400001,
+        1363.7369852539998,
+        859.80780996
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "accessible_panel_women",
+        "width": "4.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        1650.2276297105,
+        812.6488561400001,
+        1650.2276297105,
+        859.80780996
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "accessible_panel_women",
+        "width": "4.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        1363.7369852539998,
+        789.0693792299999,
+        1410.8959390740001,
+        836.2283330500001
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "90.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "90.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "accessible_panel_women",
+        "width": "4.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        1603.0686758905006,
+        789.0693792299999,
+        1650.2276297105,
+        836.2283330500001
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "90.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "0.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "accessible_panel_women",
+        "width": "4.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        1603.0686758905006,
+        836.2283330500001,
+        1650.2276297105,
+        883.3872868700003
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "90.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "270.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "accessible_panel_women",
+        "width": "4.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        1363.7369852539998,
+        836.2283330500001,
+        1410.8959390740001,
+        883.3872868700003
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "90.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "180.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "accessible_panel_women",
+        "width": "4.0"
+      }
+    },
+    {
+      "type": "rectangle",
+      "coords": [
+        1375.5267237090004,
+        800.859117685,
+        1458.0548928939997,
+        871.597548415
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "accessible_panel_women accessible_icon",
+        "width": "1.0"
+      }
+    },
+    {
+      "type": "image",
+      "coords": [
+        1416.0,
+        836.0
+      ],
+      "options": {
+        "activeimage": "",
+        "anchor": "center",
+        "disabledimage": "",
+        "image": "pyimage32",
+        "state": "",
+        "tags": "vacantview/./assets/images/Logo/logo_accessible_2.png accessible_panel_women accessible_icon_image_men",
+        "file": "vacantview/./assets/images/Logo/logo_accessible_2.png",
+        "tag": "accessible_panel_women",
+        "marker": "accessible_icon_image_men"
+      }
+    },
+    {
+      "type": "rectangle",
+      "coords": [
+        1469.844631349,
+        800.859117685,
+        1548.2463920747502,
+        871.597548415
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "green",
+        "offset": "0,0",
+        "outline": "",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "accessible_vacant accessible_panel_women",
+        "width": "1.0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        1507.5717944050002,
+        836.2283330500001
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 25 bold",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "accessible_vacant_indicator_women accessible_panel_women",
+        "text": "0",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "rectangle",
+      "coords": [
+        1560.03613052975,
+        800.859117685,
+        1638.4378912555003,
+        871.597548415
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "red",
+        "offset": "0,0",
+        "outline": "",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "accessible_occup accessible_panel_women",
+        "width": "1.0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        1597.1738066630003,
+        836.2283330500001
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 25 bold",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "accessible_occup_indicator_women accessible_panel_women",
+        "text": "0",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        960.0,
+        209.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 35 bold",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "",
+        "stipple": "",
+        "tags": "h1",
+        "text": "WASHROOM OCCUPANCY",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        176.0,
+        686.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 16 bold",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "",
+        "stipple": "",
+        "tags": "h2_v",
+        "text": "VACANT",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        680.0,
+        682.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 16 bold",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "",
+        "stipple": "",
+        "tags": "h2_o",
+        "text": "OCCUPIED",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        1240.0,
+        686.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 16 bold",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "",
+        "stipple": "",
+        "tags": "h2_v2",
+        "text": "VACANT",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        1757.0,
+        688.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 16 bold",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "",
+        "stipple": "",
+        "tags": "h2_o2",
+        "text": "OCCUPIED",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        1503.0,
+        726.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "yellow",
+        "font": "Arial 19 bold",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "cleaning_message_2",
+        "text": "WC IS BEING CLEANED, PLEASE USE WC IN FLOOR #2",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        421.0,
+        725.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "yellow",
+        "font": "Arial 19 bold",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "cleaning_message_1",
+        "text": "WC IS BEING CLEANED, PLEASE USE WC IN FLOOR #1",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        954.0,
+        144.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 19 bold",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "custom_title_text",
+        "text": "CUSTOM TEXT",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        961.0,
+        418.0,
+        961.0,
+        648.0
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "v_line",
+        "width": "3.0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        429.96128125000007,
+        535.9425000000001
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 12",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "",
+        "stipple": "",
+        "tags": "TOTAL_1 figure_men",
+        "text": "TOTAL",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "oval",
+      "coords": [
+        399.71128125,
+        457.2925,
+        460.21128125000007,
+        517.7925
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "total_circle_1 figure_men",
+        "width": "3.0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        431.1712812500001,
+        487.5425
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 28",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "Cubiculs_MEN figure_men",
+        "text": "1",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "oval",
+      "coords": [
+        393.66128125,
+        330.24249999999995,
+        466.2612812500001,
+        402.84250000000003
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_men",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        381.56128125,
+        423.4125,
+        432.38128125000003,
+        414.9425
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_men",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        429.96128125000007,
+        414.9425,
+        478.36128125000005,
+        423.4125
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_men",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        490.46128125000007,
+        435.51250000000005,
+        490.46128125000007,
+        545.6225000000001
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_men",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        369.82428125,
+        545.6225000000001,
+        369.82428125,
+        435.51250000000005
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_men",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        478.36128125000005,
+        555.3025,
+        460.57428125000007,
+        673.8825000000002
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_men",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        448.11128125,
+        681.1424999999999,
+        411.8112812500001,
+        681.1424999999999
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_men",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        381.56128125,
+        555.3025,
+        399.71128125,
+        669.0425
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_men",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        369.46128125,
+        423.4125,
+        397.29128125,
+        457.2925
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "85.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "90.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "figure_men",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        462.63128125000003,
+        423.4125,
+        490.46128125000007,
+        447.61250000000007
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "85.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "0.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "figure_men",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        466.2612812500001,
+        532.3125,
+        490.46128125000007,
+        556.5125
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "90.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "270.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "figure_men",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        369.46128125,
+        532.3125,
+        393.66128125,
+        556.5125
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "90.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "180.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "figure_men",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        437.2212812500001,
+        656.9425000000001,
+        461.4212812500001,
+        681.1424999999999
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "90.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "260.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "figure_men",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        399.71128125,
+        656.9425000000001,
+        423.91128125,
+        681.1424999999999
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "90.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "180.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "figure_men",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        1499.101325,
+        547.1915
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 12",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "",
+        "stipple": "",
+        "tags": "TOTAL_2 figure_women",
+        "text": "TOTAL",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "oval",
+      "coords": [
+        1462.8013250000004,
+        341.49150000000003,
+        1535.401325,
+        414.0915
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "oval",
+      "coords": [
+        1467.6413249999998,
+        468.54150000000004,
+        1528.1413249999998,
+        529.0414999999999
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "total_circle_2 figure_women",
+        "width": "3.0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        1499.101325,
+        498.79150000000004
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 28",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "Cubiculs_WOMEN figure_women",
+        "text": "0",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        1459.1713250000003,
+        435.26649999999995,
+        1501.5213250000002,
+        426.1915
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        1500.311325,
+        426.1915,
+        1535.401325,
+        434.66150000000005
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        1545.081325,
+        440.7115,
+        1557.181325,
+        555.6615000000002
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        1438.601325,
+        555.6615000000002,
+        1450.701325,
+        445.5514999999999
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        1526.6893250000003,
+        543.5614999999999,
+        1557.181325,
+        567.7615000000001
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "90.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "270.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        1438.601325,
+        543.5614999999999,
+        1471.1503250000005,
+        567.7615000000001
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "90.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "180.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        1450.701325,
+        434.66150000000005,
+        1478.531325,
+        462.4915
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "65.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "110.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        1517.2513250000002,
+        434.66150000000005,
+        1545.081325,
+        449.1815
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "80.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "0.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        1535.401325,
+        625.8415,
+        1517.2513250000002,
+        686.3415
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        1505.151325,
+        692.3915,
+        1493.0513250000004,
+        692.3915
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        1462.8013250000004,
+        624.6315,
+        1480.951325,
+        683.9214999999999
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        1454.331325,
+        567.7615000000001,
+        1448.281325,
+        613.7415000000001
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "line",
+      "coords": [
+        1541.451325,
+        567.1565,
+        1547.5013250000002,
+        613.7415000000001
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "arrow": "none",
+        "arrowshape": "8 10 3",
+        "capstyle": "butt",
+        "fill": "white",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "joinstyle": "round",
+        "offset": "0,0",
+        "smooth": "0",
+        "splinesteps": "12",
+        "state": "",
+        "stipple": "",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        1494.261325,
+        668.1915,
+        1518.4613250000002,
+        692.3915
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "90.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "260.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        1480.951325,
+        668.1915,
+        1505.151325,
+        692.3915
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "90.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "195.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        1448.281325,
+        605.2715,
+        1468.851325,
+        625.8415
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "130.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "165.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        1525.7213250000004,
+        605.2715,
+        1547.5013250000002,
+        625.8415
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "115.0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "260.0",
+        "state": "",
+        "stipple": "",
+        "style": "arc",
+        "tags": "figure_women",
+        "width": "6.0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        433.0,
+        563.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 11",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "TOTAL_3",
+        "text": "TOTAL",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        1500.0,
+        572.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 11",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "TOTAL_4",
+        "text": "TOTAL",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        178.0,
+        382.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 11",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "h2_v_add",
+        "text": "VACANT",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        1237.0,
+        387.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 11",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "h2_v2_add",
+        "text": "VACANT",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        681.0,
+        377.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 11",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "h2_o_add",
+        "text": "OCCUPIED",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        1751.0,
+        390.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 11",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "h2_o2_add",
+        "text": "OCCUPIED",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        1498.0,
+        761.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "yellow",
+        "font": "Arial 19 bold",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "cleaning_message_2_add",
+        "text": "WC IS BEING CLEANED, PLEASE USE WC IN FLOOR #2 ADD",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        425.0,
+        762.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "yellow",
+        "font": "Arial 19 bold",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "normal",
+        "stipple": "",
+        "tags": "cleaning_message_1_add",
+        "text": "WC IS BEING CLEANED, PLEASE USE WC IN FLOOR #1 ADD",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "oval",
+      "coords": [
+        572.0,
+        424.0,
+        788.0,
+        640.0
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "#417293",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "graph_M_RED",
+        "width": "3.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        581.0,
+        433.0,
+        779.0,
+        631.0
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "359.9",
+        "fill": "#FF8080",
+        "offset": "0,0",
+        "outline": "#FF8080",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "0.0",
+        "state": "",
+        "stipple": "",
+        "style": "pieslice",
+        "tags": "graph_M_RED",
+        "width": "1.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        581.0,
+        433.0,
+        779.0,
+        631.0
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "-359.9",
+        "fill": "#FF0000",
+        "offset": "0,0",
+        "outline": "#FF0000",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "0.0",
+        "state": "",
+        "stipple": "",
+        "style": "pieslice",
+        "tags": "graph_M_RED",
+        "width": "3.0"
+      }
+    },
+    {
+      "type": "oval",
+      "coords": [
+        1643.0,
+        431.0,
+        1863.0,
+        651.0
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "#417293",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "graph_w_RED",
+        "width": "3.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        1652.0,
+        440.0,
+        1854.0,
+        642.0
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "359.9",
+        "fill": "#FF8080",
+        "offset": "0,0",
+        "outline": "#FF8080",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "0.0",
+        "state": "",
+        "stipple": "",
+        "style": "pieslice",
+        "tags": "graph_w_RED",
+        "width": "1.0"
+      }
+    },
+    {
+      "type": "oval",
+      "coords": [
+        68.0,
+        427.0,
+        284.0,
+        643.0
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "#417293",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "graph_M_GREEN",
+        "width": "3.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        77.0,
+        436.0,
+        275.0,
+        634.0
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "359.9",
+        "fill": "#80FF80",
+        "offset": "0,0",
+        "outline": "#80FF80",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "0.0",
+        "state": "",
+        "stipple": "",
+        "style": "pieslice",
+        "tags": "graph_M_GREEN",
+        "width": "1.0"
+      }
+    },
+    {
+      "type": "oval",
+      "coords": [
+        1127.0,
+        429.0,
+        1349.0,
+        651.0
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "",
+        "offset": "0,0",
+        "outline": "#417293",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "graph_w_GREEN",
+        "width": "3.0"
+      }
+    },
+    {
+      "type": "arc",
+      "coords": [
+        1136.0,
+        438.0,
+        1340.0,
+        642.0
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0.0",
+        "extent": "359.9",
+        "fill": "#80FF80",
+        "offset": "0,0",
+        "outline": "#80FF80",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "start": "0.0",
+        "state": "",
+        "stipple": "",
+        "style": "pieslice",
+        "tags": "graph_w_GREEN",
+        "width": "1.0"
+      }
+    },
+    {
+      "type": "oval",
+      "coords": [
+        99.0,
+        458.0,
+        253.0,
+        612.0
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "#004974",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "graph_M_GREEN",
+        "width": "0.0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        176.0,
+        535.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 44",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "",
+        "stipple": "",
+        "tags": "graph_M_GREEN",
+        "text": "0",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "oval",
+      "coords": [
+        603.0,
+        455.0,
+        757.0,
+        609.0
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "#004974",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "graph_M_RED",
+        "width": "0.0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        680.0,
+        532.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 44",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "",
+        "stipple": "",
+        "tags": "graph_M_RED",
+        "text": "1",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "oval",
+      "coords": [
+        1159.0,
+        461.0,
+        1317.0,
+        619.0
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "#004974",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "graph_w_GREEN",
+        "width": "0.0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        1238.0,
+        540.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 46",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "",
+        "stipple": "",
+        "tags": "graph_w_GREEN",
+        "text": "0",
+        "underline": "-1",
+        "width": "0"
+      }
+    },
+    {
+      "type": "oval",
+      "coords": [
+        1675.0,
+        463.0,
+        1831.0,
+        619.0
+      ],
+      "options": {
+        "activedash": "",
+        "activefill": "",
+        "activeoutline": "",
+        "activeoutlinestipple": "",
+        "activestipple": "",
+        "activewidth": "0.0",
+        "dash": "",
+        "dashoffset": "0",
+        "disableddash": "",
+        "disabledfill": "",
+        "disabledoutline": "",
+        "disabledoutlinestipple": "",
+        "disabledstipple": "",
+        "disabledwidth": "0",
+        "fill": "#004974",
+        "offset": "0,0",
+        "outline": "white",
+        "outlineoffset": "0,0",
+        "outlinestipple": "",
+        "state": "",
+        "stipple": "",
+        "tags": "graph_w_RED",
+        "width": "0.0"
+      }
+    },
+    {
+      "type": "text",
+      "coords": [
+        1753.0,
+        541.0
+      ],
+      "options": {
+        "activefill": "",
+        "activestipple": "",
+        "anchor": "center",
+        "angle": "0.0",
+        "disabledfill": "",
+        "disabledstipple": "",
+        "fill": "white",
+        "font": "Arial 45",
+        "justify": "left",
+        "offset": "0,0",
+        "state": "",
+        "stipple": "",
+        "tags": "graph_w_RED",
+        "text": "0",
+        "underline": "-1",
+        "width": "0"
+      }
+    }
+  ],
+  "indicator_type": "circle",
+  "outring_fill": {
+    "graph_M_GREEN": "#417293",
+    "graph_M_RED": "#417293",
+    "graph_w_GREEN": "#417293",
+    "graph_w_RED": "#417293"
+  },
+  "outer3_fill": {
+    "graph_M_GREEN": "#004974",
+    "graph_M_RED": "#004974",
+    "graph_w_GREEN": "#004974",
+    "graph_w_RED": "#004974"
+  },
+  "text_color": {
+    "graph_M_GREEN": "white",
+    "graph_M_RED": "white",
+    "graph_w_GREEN": "white",
+    "graph_w_RED": "white"
+  },
+  "new_font": [
+    "Arial",
+    52,
+    "bold"
+  ],
+  "int_cansize": 0,
+  "graph_elements": {
+    "graph_M_GREEN": {
+      "items": [],
+      "scale_params": null,
+      "accumulated_scale": 1.0
+    },
+    "graph_M_RED": {
+      "items": [],
+      "scale_params": null,
+      "accumulated_scale": 1.0
+    },
+    "graph_w_GREEN": {
+      "items": [],
+      "scale_params": null,
+      "accumulated_scale": 1.0
+    },
+    "graph_w_RED": {
+      "items": [],
+      "scale_params": null,
+      "accumulated_scale": 1.0
+    }
+  },
+  "logo_positions": {
+    "x": 918.0,
+    "y": 878.0
+  },
+  "logo_file_path": "vacantview/./assets/images/Logo/Stern logo_Black.png",
+  "logo_scale": 0.072,
+  "bg_set_img": false,
+  "background_filepath": "",
+  "current_mode": "custom",
+  "hidden_tags": [],
+  "filtered_tags": [],
+  "fullscreen_mode": true,
+  "s_element_dict": {
+    "both": [
+      "Cubiculs_MEN",
+      "Cubiculs_WOMEN"
+    ],
+    "both_accessible": [
+      "Cubiculs_MEN",
+      "Cubiculs_WOMEN",
+      "accessible_vacant_indicator_men",
+      "accessible_vacant_indicator_women",
+      "accessible_occup_indicator_women",
+      "accessible_occup_indicator_men"
+    ],
+    "men": [
+      "Cubiculs_MEN",
+      "Cubiculs_WOMEN",
+      "accessible_vacant_indicator_men",
+      "accessible_occup_indicator_men"
+    ],
+    "men_accessible": [
+      "Cubiculs_MEN",
+      "accessible_vacant_indicator_men",
+      "accessible_occup_indicator_men"
+    ],
+    "women": [
+      "Cubiculs_WOMEN"
+    ],
+    "women_accessible": [
+      "Cubiculs_WOMEN",
+      "accessible_vacant_indicator_women",
+      "accessible_occup_indicator_women"
+    ],
+    "custom": [
+      "Cubiculs_MEN",
+      "Cubiculs_WOMEN",
+      "accessible_vacant_indicator_men",
+      "accessible_vacant_indicator_women",
+      "accessible_occup_indicator_women",
+      "accessible_occup_indicator_men"
+    ]
+  },
+  "ring_color_table": {
+    "graph_M_GREEN": {
+      "outline": "#80FF80",
+      "fill": "#80FF80"
+    },
+    "graph_M_RED": {
+      "outline": "#FF8080",
+      "fill": "#FF8080"
+    },
+    "graph_w_GREEN": {
+      "outline": "#80FF80",
+      "fill": "#80FF80"
+    },
+    "graph_w_RED": {
+      "outline": "#FF8080",
+      "fill": "#FF8080"
+    }
+  },
+  "ring_color_add_table": {
+    "graph_M_GREEN": {
+      "outline": "#00FF00",
+      "fill": "#00FF00"
+    },
+    "graph_M_RED": {
+      "outline": "#FF0000",
+      "fill": "#FF0000"
+    },
+    "graph_w_GREEN": {
+      "outline": "#00FF00",
+      "fill": "#00FF00"
+    },
+    "graph_w_RED": {
+      "outline": "#FF0000",
+      "fill": "#FF0000"
+    }
+  },
+  "custom_title": true,
+  "a_progress_on": true,
+  "c_block": false,
+  "positions": {
+    "graph_w_GREEN": {
+      "WOMEN": [
+        0.2755208333333333,
+        0.5222222222222223
+      ],
+      "BOTH": [
+        0.6447916666666667,
+        0.5
+      ]
+    },
+    "graph_w_RED": {
+      "WOMEN": [
+        0.7380208333333333,
+        0.5157407407407407
+      ],
+      "BOTH": [
+        0.9130208333333333,
+        0.5009259259259259
+      ]
+    },
+    "graph_M_GREEN": {
+      "MEN": [
+        0.27760416666666665,
+        0.5166666666666667
+      ],
+      "BOTH": [
+        0.09166666666666666,
+        0.49537037037037035
+      ]
+    },
+    "graph_M_RED": {
+      "MEN": [
+        0.734375,
+        0.5111111111111111
+      ],
+      "BOTH": [
+        0.3541666666666667,
+        0.4925925925925926
+      ]
+    }
+  },
+  "logo_rel_pos": {
+    "x": 0.478125,
+    "y": 0.812962962962963
+  },
+  "bg_color": "#00436e",
+  "GLOBAL_ORIENTATION": "horizontal"
+}

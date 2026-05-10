@@ -1,0 +1,641 @@
+# Hebrew translations for PACKAGE package.
+# Copyright (C) 2025 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#  <stc@development>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-27 16:22+0300\n"
+"PO-Revision-Date: 2025-07-27 16:27+0300\n"
+"Last-Translator: <stc@development>\n"
+"Language-Team: Hebrew <heb-bugzap@hamakor.org.il>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: tests/test_ports.py:40
+msgid "Initializing devices...\nPlease wait"
+msgstr "מאתחל מכשירים\nאנא המתן"
+
+#: ui/gui_app.py:120
+msgid "MEN INDICATOR"
+msgstr "אינדיקטור גברים"
+
+#: ui/gui_app.py:122
+msgid "WOMEN INDICATOR"
+msgstr "אינדיקטור נשים"
+
+#: ui/gui_app.py:124
+msgid "MEN TOTAL"
+msgstr "סה\"כ גברים"
+
+#: ui/gui_app.py:126
+msgid "WOMEN TOTAL"
+msgstr "סה\"כ נשים"
+
+#: ui/gui_app.py:128
+msgid "Accessible_Panel_Men"
+msgstr "פאנל נגיש גברים"
+
+#: ui/gui_app.py:130
+msgid "Accessible Panel Women"
+msgstr "פאנל נגיש נשים"
+
+#: ui/gui_app.py:132
+msgid "Accessible Vacant Indicator Men"
+msgstr "אינדיקטור נגיש פנוי גברים"
+
+#: ui/gui_app.py:134
+msgid "Accessible Vacant Indicator Women"
+msgstr "אינדיקטור נגיש פנוי נשים"
+
+#: ui/gui_app.py:136
+msgid "Accessible Occup Indicator Men"
+msgstr "אינדיקטור נגיש תפוס גברים"
+
+#: ui/gui_app.py:138
+msgid "Accessible Occup Indicator Women"
+msgstr "אינדיקטור נגיש תפוס נשים"
+
+#: ui/gui_app.py:503
+msgid "NO CONNECTION\nCHECK CONNECTIONS"
+msgstr "אין חיבור\nבדוק חיבורים"
+
+#: ui/context_menu/context_menu.py:59
+msgid "Line length (≥10 px):"
+msgstr "אורך קו"
+
+#: ui/context_menu/context_menu.py:76
+msgid "OK"
+msgstr "אישור"
+
+#: ui/context_menu/context_menu.py:354
+msgid "Empty"
+msgstr "ריק"
+
+#: ui/context_menu/context_menu.py:498
+msgid "Hidden Elements"
+msgstr "אלמנטים מוסתרים"
+
+#: ui/context_menu/context_menu.py:502 ui/context_menu/context_menu.py:523
+#: ui/context_menu/context_menu.py:545 ui/context_menu/context_menu.py:800
+#: ui/context_menu/context_menu.py:815
+msgid "Scale ( + )"
+msgstr "הגדלה ( + )"
+
+#: ui/context_menu/context_menu.py:503 ui/context_menu/context_menu.py:524
+#: ui/context_menu/context_menu.py:546 ui/context_menu/context_menu.py:801
+#: ui/context_menu/context_menu.py:816
+msgid "Scale ( - )"
+msgstr "הקטנה ( - )"
+
+#: ui/context_menu/context_menu.py:506 ui/context_menu/context_menu.py:527
+#: ui/context_menu/context_menu.py:767
+msgid "Set Width"
+msgstr "הגדר רוחב"
+
+#: ui/context_menu/context_menu.py:507 ui/context_menu/context_menu.py:528
+#: ui/context_menu/context_menu.py:768
+msgid "Line Width"
+msgstr "רוחב קו"
+
+#: ui/context_menu/context_menu.py:510 ui/context_menu/context_menu.py:531
+#: ui/context_menu/context_menu.py:763 ui/context_menu/context_menu.py:896
+msgid "Set Line Color"
+msgstr "הגדר צבע קו"
+
+#: ui/context_menu/context_menu.py:512 ui/context_menu/context_menu.py:533
+#: ui/context_menu/context_menu.py:764 ui/context_menu/context_menu.py:897
+msgid "Line Color Schema"
+msgstr "ערכת צבעי קו"
+
+#: ui/context_menu/context_menu.py:515
+msgid "Hide Panel"
+msgstr "הסתר פאנל"
+
+#: ui/context_menu/context_menu.py:551 ui/context_menu/context_menu.py:850
+msgid "Disable Progress Animation"
+msgstr "השבת אנימציית התקדמות"
+
+#: ui/context_menu/context_menu.py:553 ui/context_menu/context_menu.py:560 ui/context_menu/context_menu.py:852 ui/context_menu/context_menu.py:859
+msgid "Set Status Color"
+msgstr "הגדר צבע סטטוס"
+
+#: ui/context_menu/context_menu.py:555 ui/context_menu/context_menu.py:854
+msgid "Set Progress Status Color"
+msgstr "הגדר צבע סטטוס התקדמות"
+
+#: ui/context_menu/context_menu.py:559 ui/context_menu/context_menu.py:858
+msgid "Enable Progress Animation"
+msgstr "אפשר אנימציית התקדמות"
+
+#: ui/context_menu/context_menu.py:563 ui/context_menu/context_menu.py:862
+msgid "Set Outer Ring Status Color"
+msgstr "הגדר צבע סטטוס של הטבעת החיצונית"
+
+#: ui/context_menu/context_menu.py:564 ui/context_menu/context_menu.py:864
+msgid "Set Indicator Background Color"
+msgstr "הגדר צבע רקע של האינדיקטור"
+
+#: ui/context_menu/context_menu.py:565 ui/context_menu/context_menu.py:865
+msgid "Set Number Color"
+msgstr "הגדר צבע מספר"
+
+#: ui/context_menu/context_menu.py:567 ui/context_menu/context_menu.py:867
+msgid "Status Color Scheme"
+msgstr "ערכת צבעי סטטוס"
+
+#: ui/context_menu/context_menu.py:570
+msgid "Hide Ring"
+msgstr "הסתר טבעת"
+
+#: ui/context_menu/context_menu.py:573
+msgid "Set Indicator Font"
+msgstr "הגדר גופן אינדיקטור"
+
+#: ui/context_menu/context_menu.py:574
+msgid "Set Indicator Font Size"
+msgstr "גודל גופן אינדיקטור"
+
+#: ui/context_menu/context_menu.py:575
+msgid "Set Indicator Font Style"
+msgstr "סגנון גופן אינדיקטור"
+
+#: ui/context_menu/context_menu.py:578 ui/context_menu/context_menu.py:585
+msgid "Set Indicator Shape ( Square )"
+msgstr "צורת אינדיקטור (ריבוע)"
+
+#: ui/context_menu/context_menu.py:579 ui/context_menu/context_menu.py:582
+msgid "Set Indicator Shape ( Rounded )"
+msgstr "צורת אינדיקטור (עיגול עם פינות מעוגלות)"
+
+#: ui/context_menu/context_menu.py:581 ui/context_menu/context_menu.py:584
+msgid "Set Indicator Shape ( Circle )"
+msgstr "צורת אינדיקטור (מעגל)"
+
+#: ui/context_menu/context_menu.py:587
+msgid "Numerical Status Indicators"
+msgstr "אינדיקטורים ממוספרים"
+
+#: ui/context_menu/context_menu.py:593
+msgid "Export"
+msgstr "ייצוא"
+
+#: ui/context_menu/context_menu.py:594
+msgid "Import"
+msgstr "ייבוא"
+
+#: ui/context_menu/context_menu.py:595 ui/context_menu/context_menu.py:876
+msgid "Save"
+msgstr "שמור"
+
+#: ui/context_menu/context_menu.py:596 ui/context_menu/context_menu.py:877
+msgid "Restore to Default"
+msgstr "שחזר לברירת מחדל"
+
+#: ui/context_menu/context_menu.py:597 ui/context_menu/context_menu.py:882
+msgid "View Mode Settings"
+msgstr "הגדרות מצב תצוגה"
+
+#: ui/context_menu/context_menu.py:600
+msgid "Man Restroom"
+msgstr "שירותי גברים"
+
+#: ui/context_menu/context_menu.py:601
+msgid "Man with Accessible Restroom"
+msgstr "שירותי גברים נגישים"
+
+#: ui/context_menu/context_menu.py:602
+msgid "Woman Restroom"
+msgstr "שירותי נשים"
+
+#: ui/context_menu/context_menu.py:603
+msgid "Woman with Accessible Restroom"
+msgstr "שירותי נשים נגישים"
+
+#: ui/context_menu/context_menu.py:604
+msgid "Family Restroom"
+msgstr "שירותי משפחה"
+
+#: ui/context_menu/context_menu.py:605
+msgid "Family with Accessible Restroom"
+msgstr "שירותי משפחה נגישים"
+
+#: ui/context_menu/context_menu.py:606
+msgid "Custom"
+msgstr "מותאם אישית"
+
+#: ui/context_menu/context_menu.py:607
+msgid "Change View Mode"
+msgstr "שנה מצב תצוגה"
+
+#: ui/context_menu/context_menu.py:610
+msgid "Fullscreen Mode"
+msgstr "מצב מסך מלא"
+
+#: ui/context_menu/context_menu.py:611
+msgid "Exit Fullscreen"
+msgstr "צא ממסך מלא"
+
+#: ui/context_menu/context_menu.py:613
+msgid "Display Modes"
+msgstr "מצבי תצוגה"
+
+#: ui/context_menu/context_menu.py:618
+msgid "Grid Step: {0} px"
+msgstr "צעד רשת: {0} פיקסלים"
+
+#: ui/context_menu/context_menu.py:619
+msgid "Enable Dragging"
+msgstr "אפשר גרירה"
+
+#: ui/context_menu/context_menu.py:621
+msgid "Disable Dragging"
+msgstr "השבת גרירה"
+
+#: ui/context_menu/context_menu.py:624
+msgid "Languages"
+msgstr "שפות"
+
+#: ui/context_menu/context_menu.py:626
+msgid "English"
+msgstr "אנגלית"
+
+#: ui/context_menu/context_menu.py:627
+msgid "Español"
+msgstr "ספרדית"
+
+#: ui/context_menu/context_menu.py:628
+msgid "Français"
+msgstr "צרפתית"
+
+#: ui/context_menu/context_menu.py:629
+msgid "Deutsch"
+msgstr "גרמנית"
+
+#: ui/context_menu/context_menu.py:633
+msgid "Additional header: On"
+msgstr "כותרת נוספת: פועל"
+
+#: ui/context_menu/context_menu.py:646
+msgid "Additional header: Off"
+msgstr "כותרת נוספת: כבוי"
+
+#: ui/context_menu/context_menu.py:660
+msgid "Change Background Image"
+msgstr "שנה תמונת רקע"
+
+#: ui/context_menu/context_menu.py:661
+msgid "Change Logo "
+msgstr "שנה לוגו"
+
+#: ui/context_menu/context_menu.py:668
+msgid "Change Background Image USB - {0}"
+msgstr "שנה תמונת רקע USB – {0}"
+
+#: ui/context_menu/context_menu.py:672
+msgid "Change Logo USB - {0}"
+msgstr "שנה לוגו USB – {0}"
+
+#: ui/context_menu/context_menu.py:676
+msgid "Image Handling"
+msgstr "טיפול בתמונות"
+
+#: ui/context_menu/context_menu.py:678
+msgid "Change Background Color"
+msgstr "שנה צבע רקע"
+
+#: ui/context_menu/context_menu.py:683 ui/context_menu/context_menu.py:716 ui/context_menu/context_menu.py:735 ui/context_menu/context_menu.py:792 ui/context_menu/context_menu.py:890 ui/context_menu/context_menu.py:905
+msgid "Set Text Color"
+msgstr "הגדר צבע טקסט"
+
+#: ui/context_menu/context_menu.py:684 ui/context_menu/context_menu.py:717 ui/context_menu/context_menu.py:736 ui/context_menu/context_menu.py:891 ui/context_menu/context_menu.py:902
+msgid "Text Color Schema"
+msgstr "ערכת צבעי טקסט"
+
+#: ui/context_menu/context_menu.py:687 ui/context_menu/context_menu.py:723 ui/context_menu/context_menu.py:748 ui/context_menu/context_menu.py:789 ui/context_menu.context_menu.py:902
+msgid "Change Font"
+msgstr "שנה גופן"
+
+#: ui/context_menu.context_menu.py:688 ui/context_menu.context_menu.py:724 ui/context_menu.context_menu.py:749 ui/context_menu.context_menu.py:790 ui.context_menu.context_menu.py:903
+msgid "Change Size"
+msgstr "שנה גודל"
+
+#: ui/context_menu.context_menu.py:689 ui/context_menu.context_menu.py:725 ui.context_menu.context_menu.py:750 ui.context_menu.context_menu.py:791 ui.context_menu.context_menu.py:904
+msgid "Change Font Style"
+msgstr "שנה סגנון גופן"
+
+#: ui/context_menu.context_menu.py:692 ui/context_menu.context_menu.py:785 ui.context_menu.context_menu.py:901
+msgid "Change Text"
+msgstr "שנה טקסט"
+
+# Далее переведены основные интерфейсные надписи
+
+#: admin/utils/user_editor.py:704
+msgid "Hide"
+msgstr "הסתר"
+
+#: ui/context_menu.context_menu.py:710
+msgid "Font"
+msgstr "גופן"
+
+#: ui/context_menu.context_menu.py:720
+msgid "Hide Indicator"
+msgstr "הסתר אינדיקטור"
+
+#: ui/context_menu.context_menu.py:760
+msgid "Set Length"
+msgstr "הגדר אורך"
+
+#: ui/context_menu.context_menu.py:771
+msgid "Hide Line"
+msgstr "הסתר קו"
+
+#: ui/context_menu.context_menu.py:774
+msgid "Make Line Horizontal"
+msgstr "הפוך הקו לאופקי"
+
+#: ui/context_menu.context_menu.py:776
+msgid "Make Line Vertical"
+msgstr "הפוך הקו לאנכי"
+
+#: ui/context_menu.context_menu.py:802
+msgid "Set figure size"
+msgstr "הגדר גודל ציור"
+
+#: ui.context_menu.context_menu.py:806
+msgid "Hide Men Figure"
+msgstr "הסתר דמות גברים"
+
+#: ui.context_menu.context_menu.py:808
+msgid "Hide Women Figure"
+msgstr "הסתר דמות נשים"
+
+#: ui.context_menu.context_menu.py:810 ui.context_menu.context_menu.py:822 ui.context_menu.context_menu.py:909
+msgid "Set Color"
+msgstr "הגדר צבע"
+
+#: ui.context_menu.context_menu.py:814
+msgid "Hide Logo"
+msgstr "הסתר לוגו"
+
+#: ui.context_menu.context_menu.py:828
+msgid "Change Logo Image"
+msgstr "שנה תמונת לוגו"
+
+#: ui.context_menu.context_menu.py:833
+msgid "Unblock Communications"
+msgstr "בטל חסימת תקשורת"
+
+#: ui.context_menu.context_menu.py:836
+msgid "Block Communications"
+msgstr "חסום תקשורת"
+
+#: ui.context_menu.context_menu.py:839 ui.context_menu.context_menu.py:914
+msgid "Close Menu"
+msgstr "סגור תפריט"
+
+#: ui.context_menu.context_menu.py:840 ui.context_menu.context_menu.py:915
+msgid "Exit"
+msgstr "יציאה"
+
+#: ui/context_menu/functions/branding_images.py:18
+msgid "Icon"
+msgstr "אייקון"
+
+#: ui/context_menu/functions/branding_images.py:71
+msgid "Select a File"
+msgstr "בחר קובץ"
+
+#: ui/context_menu/functions/status_color_scheme.py:55
+msgid "Select Color"
+msgstr "בחר צבע"
+
+#: ui/context_menu/functions/status_color_scheme.py:66
+msgid "Choose a color:"
+msgstr "בחר צבע"
+
+#: ui/context_menu/functions/status_color_scheme.py:75
+msgid "Last: {0}"
+msgstr "אחרון: {0}"
+
+#: ui/context_menu/functions/status_color_scheme.py:135
+msgid "System Dialog"
+msgstr "דיאלוג מערכת"
+
+#: ui.context_menu.functions/status_color_scheme.py:136
+msgid "Cancel"
+msgstr "ביטול"
+
+#: admin/admin_auth.py:18 admin/admin_auth.py:30
+msgid "Authentication"
+msgstr "אימות"
+
+#: admin/admin_auth.py:32
+msgid "Select Mode:"
+msgstr "בחר מצב"
+
+#: admin/admin_auth.py:40
+msgid "Password:"
+msgstr "סיסמה"
+
+#: admin/admin_auth.py:54
+msgid "Success."
+msgstr "הצלחה."
+
+#: admin/admin_auth.py:58
+msgid "Wrong password. Try again."
+msgstr "סיסמה שגויה. נסה שוב."
+
+#: admin/admin_auth.py:71
+msgid "Login"
+msgstr "התחבר"
+
+#: admin/pin_entry.py:16
+msgid "Enter PIN"
+msgstr "הזן PIN"
+
+#: admin/pin_entry.py:31
+msgid "Enter PIN code:"
+msgstr "הזן קוד PIN"
+
+#: admin/pin_entry.py:51
+msgid "PIN accepted"
+msgstr "PIN התקבל"
+
+#: admin/pin_entry.py:55
+msgid "Invalid PIN."
+msgstr "PIN לא חוקי."
+
+#: admin/pin_entry.py:60
+msgid "Invalid PIN. Enter 4 digits."
+msgstr "PIN לא חוקי. הזן 4 ספרות."
+
+#: admin/utils/user_editor.py:23
+msgid "Admin Settings"
+msgstr "הגדרות מנהל"
+
+#: admin/utils/user_editor.py:32
+msgid "Menu"
+msgstr "תפריט"
+
+#: admin/utils/user_editor.py:57
+msgid "Security Settings"
+msgstr "הגדרות אבטחה"
+
+#: admin/utils/user_editor.py:61
+msgid "Select user:"
+msgstr "בחר משתמש"
+
+#: admin/utils/user_editor.py:95
+msgid "Password cannot contain spaces."
+msgstr "הסיסמה לא יכולה להכיל רווחים."
+
+#: admin/utils/user_editor.py:98
+msgid "Password too long (max 16 characters)."
+msgstr "הסיסמה ארוכה מדי (מקסימום 16 תווים)."
+
+#: admin/utils/user_editor.py:157 admin/utils/user_editor.py:159
+msgid "Show"
+msgstr "הצג"
+
+#: admin/utils/user_editor.py:161
+msgid "Confirm Password"
+msgstr "אשר סיסמה"
+
+#: admin/utils/user_editor.py:162
+msgid "Confirm Access Code"
+msgstr "אשר קוד גישה"
+
+#: admin/utils/user_editor.py:178
+msgid "Password changed successfully."
+msgstr "הסיסמה שונתה בהצלחה."
+
+#: admin/utils/user_editor.py:182
+msgid "Password too short or invalid."
+msgstr "הסיסמה קצרה מדי או לא חוקית."
+
+#: admin/utils/user_editor.py:190
+msgid "Access Code updated."
+msgstr "קוד גישה עודכן."
+
+#: admin/utils/user_editor.py:194
+msgid "Code must be up to 4 digits."
+msgstr "הקוד חייב להיות עד 4 ספרות."
+
+#: admin/utils/user_editor.py:202
+msgid "Change Password"
+msgstr "שנה סיסמה"
+
+#: admin/utils/user_editor.py:205
+msgid "Enter new password:"
+msgstr "הזן סיסמה חדשה"
+
+#: admin/utils/user_editor.py:219
+msgid "Change Access Code"
+msgstr "שנה קוד גישה"
+
+#: admin/utils/user_editor.py:222
+msgid "Enter new access code:"
+msgstr "שנה קוד גישה"
+
+#: admin/utils/user_editor.py:239
+msgid "System Information"
+msgstr "מידע מערכת"
+
+#: admin/utils/user_editor.py:248
+msgid "Organization Details"
+msgstr "פרטי הארגון"
+
+#: admin/utils/user_editor.py:249
+msgid "Organization Name:"
+msgstr "שם הארגון"
+
+#: admin/utils/user_editor.py:253
+msgid "Organization ID:"
+msgstr "מזהה הארגון"
+
+#: admin/utils/user_editor.py:263 admin/utils/user_editor.py:474
+msgid "File Management"
+msgstr "ניהול קבצים"
+
+#: admin/utils/user_editor.py:288
+msgid "Source:"
+msgstr "מקור"
+
+#: admin/utils/user_editor.py:344
+msgid "No storage device found"
+msgstr "לא נמצא התקן אחסון"
+
+#: admin/utils/user_editor.py:434
+msgid "Copy to system folder"
+msgstr "העתק לתיקיית המערכת"
+
+#: admin/utils/user_editor.py:469
+msgid "Edit Mode"
+msgstr "מצב עריכה"
+
+#: admin/utils/user_editor.py:470
+msgid "Security"
+msgstr "אבטחה"
+
+#: admin/utils/user_editor.py:472
+msgid "System Info"
+msgstr "מידע מערכת"
+
+#: admin/utils/user_editor.py:473
+msgid "Organization"
+msgstr "ארגון"
+
+#: admin/utils/user_editor.py:475
+msgid "Exit to OS"
+msgstr "צא למערכת ההפעלה"
+
+#: ui/gui_elements.py:36 ui/gui_elements.py:44 ui/gui_elements.py:49 ui/gui_elements.py:50 ui/gui_elements.py:82
+msgid "TOTAL"
+msgstr "סה\"כ"
+
+#: ui/gui_elements.py:37 ui/gui_elements.py:43 ui/gui_elements.py:55 ui/gui_elements.py:56 ui/gui_elements.py:64 ui/gui_elements.py:66
+msgid "OCCUPIED"
+msgstr "תפוס"
+
+#: ui/gui_elements.py:38 ui.gui_elements.py:42 ui.gui_elements.py:52 ui/gui_elements.py:53 ui/gui_elements.py:63 ui.gui_elements.py:65
+msgid "VACANT"
+msgstr "פנוי"
+
+#: ui/gui_elements.py:47 ui.gui_elements.py:59
+msgid "WC IS BEING CLEANED, PLEASE USE WC IN FLOOR #1 ADD"
+msgstr "השירותים עוברים ניקיון, אנא השתמש בשירותים בקומה"
+
+#: ui/gui_elements.py:58
+msgid "WC IS BEING CLEANED, PLEASE USE WC IN FLOOR #2 ADD"
+msgstr "השירותים עוברים ניקיון, אנא השתמש בשירותים בקומה"
+
+#: ui/gui_elements.py:62
+msgid "WASHROOM OCCUPANCY"
+msgstr "תפוסת השירותים"
+
+#: ui/gui_elements.py:72 ui.gui_elements.py:75
+msgid "WC IS BEING CLEANED, PLEASE USE WC IN FLOOR #1"
+msgstr "השירותים עוברים ניקיון, אנא השתמש בשירותים בקומה"
+
+#: ui/gui_elements.py:74
+msgid "WC IS BEING CLEANED, PLEASE USE WC IN FLOOR #2"
+msgstr "השירותים עוברים ניקיון, אנא השתמש בשירותים בקומה"
+
+#: ui/gui_elements.py:76
+msgid "CUSTOM TEXT"
+msgstr "טקסט מותאם אישית"
+
+msgid "Force use current mode"
+msgstr "לאלץ להשתמש במצב הנוכחי"
+
+msgid "Adapt viewing mode"
+msgstr "להתאים את מצב התצוגה"
+
+msgid "Save and adapt resolution"
+msgstr "לשמור ולהתאים את הרזולוציה"
