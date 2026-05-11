@@ -26,7 +26,6 @@ from vacantview.config.config import FULLSCREEN_ON_LOAD, WIDTH, HEIGH, NAME_MODE
 from vacantview.tests.test_ports import available_ports
 from vacantview.ui.context_menu.rtl_func import prepare_text_for_widget
 
-import RPi.GPIO as GPIO
 import tkinter as tk
 import tkinter.font
 import threading
