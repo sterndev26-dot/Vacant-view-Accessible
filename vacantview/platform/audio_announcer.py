@@ -70,7 +70,7 @@ def start():
             print(f"[AUDIO] Warning: {label} not found at '{path}'")
     try:
         from gpiozero import MotionSensor
-        _pir = MotionSensor(cfg.PIR_PIN)
+        _pir = MotionSensor(cfg.PIR_PIN, pull_up=True)
         _pir.when_motion = _on_motion
         print(f"[AUDIO] PIR sensor ready on GPIO {cfg.PIR_PIN}")
     except Exception as e:
