@@ -292,25 +292,25 @@ def on_right_click_ring(event):
             elif tag=="graph_M_GREEN":
                 floating_id = state.drag_data_rings.get("floating_label_id")
                 if floating_id:
-                    canvas.delete(floating_id)
+                    state.bg_canvas.delete(floating_id)
                     state.drag_data_rings["floating_label_id"] = None
                 show_context_menu(event, target="ring", identifier=tag)
             elif tag=="graph_M_RED":
                 floating_id = state.drag_data_rings.get("floating_label_id")
                 if floating_id:
-                    canvas.delete(floating_id)
+                    state.bg_canvas.delete(floating_id)
                     state.drag_data_rings["floating_label_id"] = None
                 show_context_menu(event, target="ring", identifier=tag)
             elif tag=="graph_w_GREEN":
                 floating_id = state.drag_data_rings.get("floating_label_id")
                 if floating_id:
-                    canvas.delete(floating_id)
+                    state.bg_canvas.delete(floating_id)
                     state.drag_data_rings["floating_label_id"] = None
                 show_context_menu(event, target="ring", identifier=tag)
             elif tag=="graph_w_RED":
                 floating_id = state.drag_data_rings.get("floating_label_id")
                 if floating_id:
-                    canvas.delete(floating_id)
+                    state.bg_canvas.delete(floating_id)
                     state.drag_data_rings["floating_label_id"] = None
                 show_context_menu(event, target="ring", identifier=tag)
             elif tag == 'h1':
@@ -332,13 +332,13 @@ def on_right_click_ring(event):
             elif tag == 'Cubiculs_MEN':
                 floating_id = state.drag_data_rings.get("floating_label_id")
                 if floating_id:
-                    canvas.delete(floating_id)
+                    state.bg_canvas.delete(floating_id)
                     state.drag_data_rings["floating_label_id"] = None
                 show_context_menu(event, target="indicator_men", identifier=tag)
             elif tag == 'Cubiculs_WOMEN':
                 floating_id = state.drag_data_rings.get("floating_label_id")
                 if floating_id:
-                    canvas.delete(floating_id)
+                    state.bg_canvas.delete(floating_id)
                     state.drag_data_rings["floating_label_id"] = None
                 show_context_menu(event, target="indicator_women", identifier=tag)
             elif tag in ('TOTAL_1','TOTAL_2','TOTAL_3','TOTAL_4'):

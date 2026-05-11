@@ -409,7 +409,7 @@ def import_canvas_from_json(canvas, set_current_mode = None, resize_signal = Fal
         state.outer3_fill.update(outer3_fill_data)
         
     positions = canvas_data.get("positions")
-    if isinstance("positions", dict):
+    if isinstance(positions, dict):
         state.positions.update(positions)    
         
     s_element_dict = canvas_data.get("s_element_dict")

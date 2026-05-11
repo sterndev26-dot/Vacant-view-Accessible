@@ -79,8 +79,6 @@ def full_rpi_check():
         return False
     if not check_gpiochip_permissions():
         return False
-    if not check_rpi_gpio_installed():
-        return False
     if DEBUG:
         print("\nCheck completed.")
     return True

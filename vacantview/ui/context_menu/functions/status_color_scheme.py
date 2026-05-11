@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import colorchooser as tk_colorchooser
 from tkinter import Toplevel, ttk
 from vacantview.core.state import g_auth, state
 from vacantview.config.config import DEBUG
@@ -248,8 +249,7 @@ def apply_a_panel_color(tag, new_color):
         else:
             pass        
 
-def recolor_figure(tag,new_color):
-    
+def recolor_figure(tag, new_color):
         for item_id in state.bg_canvas.find_withtag(tag):
             cfg = state.bg_canvas.itemconfig(item_id)
             obj_type = state.bg_canvas.type(item_id)
@@ -258,22 +258,6 @@ def recolor_figure(tag,new_color):
                 state.bg_canvas.itemconfig(item_id, fill=new_color)
             elif 'outline' in cfg:
                 state.bg_canvas.itemconfig(item_id, outline=new_color)
-
-            '''if 'fill' in cfg and obj_type != 'line':
-                state.bg_canvas.itemconfig(item_id, fill="")'''
-def recolor_figure(tag,new_color):
-    
-        for item_id in state.bg_canvas.find_withtag(tag):
-            cfg = state.bg_canvas.itemconfig(item_id)
-            obj_type = state.bg_canvas.type(item_id)
-
-            if 'fill' in cfg and obj_type == 'line':
-                state.bg_canvas.itemconfig(item_id, fill=new_color)
-            elif 'outline' in cfg:
-                state.bg_canvas.itemconfig(item_id, outline=new_color)
-
-            '''if 'fill' in cfg and obj_type != 'line':
-                state.bg_canvas.itemconfig(item_id, fill="")'''
             
 def recolor_accessable_rect(tag,new_color):
     

@@ -3,7 +3,7 @@ from tkinter import Menu
 from .functions.status_color_scheme import open_custom_color_picker, apply_ring_color, apply_progress_color, apply_outring_color, apply_indicator_background_color, \
      apply_text_color, recolor_figure, recolor_accessable_rect, apply_a_panel_color, apply_indicator_number_color
 from .functions.status_indicators import change_status_indicator_font, change_status_indicator_font_size,change_status_indicator_font_style
-from .functions.branding_images import upload_background_image, upload_logo_image, set_canvas_background_color,resize_logo
+from .functions.branding_images import upload_background_image, upload_logo_image, set_canvas_background_color, resize_logo, change_accessible_icon
 from .functions.title_editor import change_main_title_font, change_main_title_font_size, edit_main_title_text, edit_line_width, \
      make_line_horizontal, make_line_vertical, adjust_line_delta, get_line_delta, change_main_title_font_style, scale_tagged_items, scale_graph_elements_by_tag, \
      change_accessiable_panel_width,scale_accessible_panel
