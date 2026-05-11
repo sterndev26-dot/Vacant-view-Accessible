@@ -8,6 +8,7 @@ from vacantview.ui.context_menu.rtl_func import prepare_text_for_widget
 
 import tkinter as tk
 import os
+import shutil
 
 win = state.win
 
@@ -272,7 +273,7 @@ def upload_logo_image_start(logo_import=None):
 
     logo_full_path = resource_path(os.path.join('vacantview', LOGO_DIR, LOGO_COMPANY))
     if not state.logo_file_path or not os.path.exists(logo_full_path):
-        if DEBUG:
+        if state.DEBUG:
             print(f" [ERROR] Logo image not found at: {state.logo_file_path}")
         return
 
