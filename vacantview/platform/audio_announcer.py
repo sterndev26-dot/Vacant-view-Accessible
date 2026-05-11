@@ -8,7 +8,7 @@ import vacantview.config.config as cfg
 
 _lock = threading.Lock()
 _last_trigger = 0.0
-_current_process = None
+_current_processes = []
 _pir = None
 
 
@@ -36,16 +36,21 @@ def _is_accessible_vacant():
 
 
 def _play_audio(filepath):
-    global _current_process
+    global _current_processes
     if not filepath or not os.path.exists(filepath):
         return
-    if _current_process and _current_process.poll() is None:
-        _current_process.terminate()
-    _current_process = subprocess.Popen(
-        ['aplay', '-D', cfg.AUDIO_DEVICE, filepath],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL
-    )
+    for p in _current_processes:
+        if p.poll() is None:
+            p.terminate()
+    _current_processes = []
+    devices = [d.strip() for d in cfg.AUDIO_DEVICE.split(',') if d.strip()]
+    for device in devices:
+        p = subprocess.Popen(
+            ['aplay', '-D', device, filepath],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL
+        )
+        _current_processes.append(p)
 
 
 def _on_motion():
