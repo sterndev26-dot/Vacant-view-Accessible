@@ -10,6 +10,7 @@ from vacantview.ui.context_menu.context_menu import show_context_menu
 from vacantview.config.config import DEBUG, LOGO_DIR, LOGO_ACCESSIBLE
 from vacantview.ui.image_loader import resource_path
 from vacantview.ui.context_menu.functions.title_editor import scale_graph_elements_by_tag
+from vacantview.ui.context_menu.rtl_func import prepare_text_for_widget
 
 
 

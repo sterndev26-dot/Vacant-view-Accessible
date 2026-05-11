@@ -186,7 +186,7 @@ def process_node_data_women(words):
 def handle_interrupt(channel):
     # Toggle cleaning mode button 1 and update UI messages accordingly
     if state.string_genderSelect.get() in ('MEN','WOMEN'):
-        if state.clean_mode_button_1 or state.clean_mode_button_1:
+        if state.clean_mode_button_1:
             state.bg_canvas.itemconfigure('cleaning_message_1', state='hidden')
             if state.custom_title:
                 state.bg_canvas.itemconfigure('cleaning_message_1_add', state='hidden')
@@ -211,16 +211,16 @@ def handle_interrupt(channel):
 def handle_interrupt_add(channel):
     # Toggle cleaning mode button 2 and update UI messages accordingly
     if state.string_genderSelect.get() in ('MEN','WOMEN'):
-        if state.clean_mode_button_1:
+        if state.clean_mode_button_2:
             if state.custom_title:
-                state.bg_canvas.itemconfigure('cleaning_message_1_add', state='hidden')
-            state.bg_canvas.itemconfigure('cleaning_message_1', state='hidden')
-            state.clean_mode_button_1 = False
+                state.bg_canvas.itemconfigure('cleaning_message_2_add', state='hidden')
+            state.bg_canvas.itemconfigure('cleaning_message_2', state='hidden')
+            state.clean_mode_button_2 = False
         else:
             if state.custom_title:
-                state.bg_canvas.itemconfigure('cleaning_message_1_add', state='normal')
-            state.bg_canvas.itemconfigure('cleaning_message_1', state='normal')
-            state.clean_mode_button_1 = True    
+                state.bg_canvas.itemconfigure('cleaning_message_2_add', state='normal')
+            state.bg_canvas.itemconfigure('cleaning_message_2', state='normal')
+            state.clean_mode_button_2 = True
     else:
         if state.clean_mode_button_2:
             if state.custom_title:
