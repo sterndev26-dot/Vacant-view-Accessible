@@ -1,8 +1,12 @@
 import sqlite3
 import os
+import hashlib
 
 from vacantview.core.state import state
 from vacantview.config.config import DB_PATH, DEBUG
+
+def _hash(value):
+    return hashlib.sha256(value.encode()).hexdigest()
 
 
 
@@ -56,6 +60,19 @@ def init_db():
         conn.commit()
         
         cursor.execute("INSERT INTO organization DEFAULT VALUES")
+
+        # Seed default users only if table is empty
+        cursor.execute("SELECT COUNT(*) FROM app_users")
+        if cursor.fetchone()[0] == 0:
+            cursor.execute(
+                "INSERT INTO app_users (username, password, pin, type) VALUES (?, ?, ?, ?)",
+                ("Master", _hash("1234"), _hash("1234"), 1)
+            )
+            cursor.execute(
+                "INSERT INTO app_users (username, password, pin, type) VALUES (?, ?, ?, ?)",
+                ("User", _hash("1234"), _hash("1234"), 2)
+            )
+
         conn.commit()
         conn.close()
         
