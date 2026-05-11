@@ -42,7 +42,7 @@ def _play_audio(filepath):
     if _current_process and _current_process.poll() is None:
         _current_process.terminate()
     _current_process = subprocess.Popen(
-        ['aplay', filepath],
+        ['aplay', '-D', cfg.AUDIO_DEVICE, filepath],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL
     )

@@ -68,3 +68,4 @@ PIR_PIN = int(_pir_raw) if _pir_raw and _pir_raw != "0" else None
 AUDIO_VACANT = os.getenv("AUDIO_VACANT", "")
 AUDIO_OCCUPIED = os.getenv("AUDIO_OCCUPIED", "")
 AUDIO_COOLDOWN = float(os.getenv("AUDIO_COOLDOWN", "10"))
+AUDIO_DEVICE = os.getenv("AUDIO_DEVICE", "default")
