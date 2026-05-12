@@ -386,7 +386,7 @@ def main():
     enable_serial_port_interface()
     make_wrapper_executable()
     add_wrapper_to_autostart_profile()
-    main_switch_to_x11()
+    main_switch_to_x11(USER_HOME)
     if modified:
         prompt_reboot()
     else:

@@ -1,13 +1,19 @@
 import os
 import subprocess
-import sys
 import shutil
+import getpass
+from pathlib import Path
 from datetime import datetime
 
 
 def run_cmd(cmd):
     print(f"Running: {cmd}")
     subprocess.run(cmd, shell=True, check=True)
+
+
+def get_real_user_home():
+    user = os.getenv("SUDO_USER") or getpass.getuser()
+    return Path(f"/home/{user}")
 
 
 def disable_console_blanking():
@@ -25,10 +31,12 @@ def disable_console_blanking():
         print("Console blanking already disabled.")
 
 
-def disable_sleep_lxde():
-    """Disable screen blanking, screensaver, DPMS, and hide idle cursor."""
-    autostart_dir = os.path.expanduser("~/.config/lxsession/LXDE-pi")
-    autostart_file = os.path.join(autostart_dir, "autostart")
+def disable_sleep_lxde(user_home=None):
+    if user_home is None:
+        user_home = get_real_user_home()
+
+    autostart_dir = Path(user_home) / ".config" / "lxsession" / "LXDE-pi"
+    autostart_file = autostart_dir / "autostart"
 
     disable_cmds = [
         "@xset s off",
@@ -40,14 +48,10 @@ def disable_sleep_lxde():
 
     os.makedirs(autostart_dir, exist_ok=True)
 
-    if os.path.exists(autostart_file):
+    if autostart_file.exists():
         timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-        backup_path = f"{autostart_file}.backup.{timestamp}"
-        shutil.copy2(autostart_file, backup_path)
-        print(f"Backup created: {backup_path}")
-
-        with open(autostart_file, "r") as f:
-            existing_lines = f.read().splitlines()
+        shutil.copy2(autostart_file, f"{autostart_file}.backup.{timestamp}")
+        existing_lines = autostart_file.read_text().splitlines()
     else:
         existing_lines = []
 
@@ -58,21 +62,19 @@ def disable_sleep_lxde():
             updated = True
 
     if updated:
-        with open(autostart_file, "w") as f:
-            f.write("\n".join(existing_lines) + "\n")
-        print("Sleep mode disabled for LXDE-pi-x session. Changes will apply after next login.")
+        autostart_file.write_text("\n".join(existing_lines) + "\n")
+        print(f"Sleep/lock mode disabled for {user_home}.")
     else:
         print("Sleep mode already disabled. No changes made.")
 
 
 def detect_display_manager():
-    dm_candidates = ["lightdm", "gdm3", "sddm"]
-    for dm in dm_candidates:
-        status = subprocess.run(
+    for dm in ["lightdm", "gdm3", "sddm"]:
+        result = subprocess.run(
             ["systemctl", "is-active", dm],
             stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True
         )
-        if status.stdout.strip() == "active":
+        if result.stdout.strip() == "active":
             return dm
     return None
 
@@ -80,9 +82,20 @@ def detect_display_manager():
 def backup_file(file_path):
     if os.path.exists(file_path):
         timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-        backup_path = f"{file_path}.backup.{timestamp}"
-        shutil.copy2(file_path, backup_path)
-        print(f"Backup created: {backup_path}")
+        shutil.copy2(file_path, f"{file_path}.backup.{timestamp}")
+        print(f"Backup created: {file_path}.backup.{timestamp}")
+
+
+def detect_x11_session():
+    session_dir = "/usr/share/xsessions"
+    preferred = ["LXDE-pi-x", "lxde-pi-x", "LXDE", "lxde", "openbox"]
+    if not os.path.exists(session_dir):
+        return "LXDE-pi-x"
+    available = [f.replace(".desktop", "") for f in os.listdir(session_dir) if f.endswith(".desktop")]
+    for s in preferred:
+        if s in available:
+            return s
+    return available[0] if available else "LXDE-pi-x"
 
 
 def is_x11_session_active(dm, session_name):
@@ -91,53 +104,40 @@ def is_x11_session_active(dm, session_name):
         if not os.path.exists(conf_file):
             return False
         with open(conf_file, "r") as f:
-            for line in f:
-                if line.strip() == f"user-session={session_name}":
-                    return True
-        return False
-
+            return any(line.strip() == f"user-session={session_name}" for line in f)
     elif dm == "gdm3":
         conf_file = "/etc/gdm3/custom.conf"
         if not os.path.exists(conf_file):
             return False
         with open(conf_file, "r") as f:
-            for line in f:
-                if line.strip() == "WaylandEnable=false":
-                    return True
-        return False
-
+            return any(line.strip() == "WaylandEnable=false" for line in f)
     elif dm == "sddm":
         conf_file = "/etc/sddm.conf"
         if not os.path.exists(conf_file):
             return False
         with open(conf_file, "r") as f:
-            for line in f:
-                if line.strip() == f"Session={session_name}.desktop":
-                    return True
-        return False
-
+            return any(line.strip() == f"Session={session_name}.desktop" for line in f)
     return False
 
 
 def switch_to_x11(dm):
-    session_name = "LXDE-pi-x"
+    session_name = detect_x11_session()
+    print(f"Using X11 session: {session_name}")
 
     if is_x11_session_active(dm, session_name):
-        print(f"{session_name} session already active for {dm}, no changes needed.")
+        print(f"{session_name} already active, no changes needed.")
         return
 
     if dm == "lightdm":
         conf_file = "/etc/lightdm/lightdm.conf"
         if not os.path.exists(conf_file):
-            print(f"{conf_file} not found, creating a new one.")
             lines = []
         else:
             backup_file(conf_file)
             with open(conf_file, "r") as f:
                 lines = f.readlines()
 
-        found_session = False
-        found_autologin = False
+        found_session = found_autologin = False
         for i, line in enumerate(lines):
             if line.strip().startswith("user-session"):
                 lines[i] = f"user-session={session_name}\n"
@@ -150,25 +150,17 @@ def switch_to_x11(dm):
         if not found_autologin:
             lines.append(f"autologin-session={session_name}\n")
 
-        content = "".join(lines)
-        subprocess.run(
-            ["sudo", "tee", conf_file],
-            input=content,
-            text=True,
-            check=True
-        )
-        print(f"{dm} configuration updated. Changes will apply after reboot.")
+        subprocess.run(["sudo", "tee", conf_file], input="".join(lines), text=True, check=True)
+        print(f"lightdm configured for {session_name}.")
 
     elif dm == "gdm3":
         conf_file = "/etc/gdm3/custom.conf"
         if not os.path.exists(conf_file):
-            print(f"{conf_file} not found. GDM3 not configured.")
+            print(f"{conf_file} not found.")
             return
-
         backup_file(conf_file)
         with open(conf_file, "r") as f:
             lines = f.readlines()
-
         found = False
         for i, line in enumerate(lines):
             if line.strip().startswith("WaylandEnable"):
@@ -177,26 +169,16 @@ def switch_to_x11(dm):
                 break
         if not found:
             lines.append("WaylandEnable=false\n")
-
-        content = "".join(lines)
-        subprocess.run(
-            ["sudo", "tee", conf_file],
-            input=content,
-            text=True,
-            check=True
-        )
-        print(f"{dm} configuration updated. Changes will apply after reboot.")
+        subprocess.run(["sudo", "tee", conf_file], input="".join(lines), text=True, check=True)
 
     elif dm == "sddm":
         conf_file = "/etc/sddm.conf"
         if not os.path.exists(conf_file):
-            print(f"{conf_file} not found. SDDM not configured.")
+            print(f"{conf_file} not found.")
             return
-
         backup_file(conf_file)
         with open(conf_file, "r") as f:
             lines = f.readlines()
-
         found = False
         for i, line in enumerate(lines):
             if line.strip().startswith("Session"):
@@ -205,18 +187,10 @@ def switch_to_x11(dm):
                 break
         if not found:
             lines.append(f"Session={session_name}.desktop\n")
-
-        content = "".join(lines)
-        subprocess.run(
-            ["sudo", "tee", conf_file],
-            input=content,
-            text=True,
-            check=True
-        )
-        print(f"{dm} configuration updated. Changes will apply after reboot.")
+        subprocess.run(["sudo", "tee", conf_file], input="".join(lines), text=True, check=True)
 
     else:
-        print("Display manager not found or not automatically supported.")
+        print("Display manager not supported.")
 
 
 def install_x11_lightdm():
@@ -238,12 +212,15 @@ def set_default_display_manager(dm):
         subprocess.run("sudo systemctl disable gdm3", shell=True)
         run_cmd("sudo systemctl enable sddm")
     else:
-        print(f"Unknown display manager: {dm}, cannot set default.")
+        print(f"Unknown display manager: {dm}")
         return
     run_cmd("sudo systemctl set-default graphical.target")
 
 
-def main_switch_to_x11():
+def main_switch_to_x11(user_home=None):
+    if user_home is None:
+        user_home = get_real_user_home()
+
     install_x11_lightdm()
 
     dm = detect_display_manager()
@@ -254,10 +231,6 @@ def main_switch_to_x11():
     print(f"Detected display manager: {dm}")
 
     switch_to_x11(dm)
-
     set_default_display_manager("lightdm")
-
     disable_console_blanking()
-    disable_sleep_lxde()
-
-
+    disable_sleep_lxde(user_home)
