@@ -135,14 +135,19 @@ def switch_to_x11(dm):
             with open(conf_file, "r") as f:
                 lines = f.readlines()
 
-        found = False
+        found_session = False
+        found_autologin = False
         for i, line in enumerate(lines):
             if line.strip().startswith("user-session"):
                 lines[i] = f"user-session={session_name}\n"
-                found = True
-                break
-        if not found:
+                found_session = True
+            elif line.strip().startswith("autologin-session"):
+                lines[i] = f"autologin-session={session_name}\n"
+                found_autologin = True
+        if not found_session:
             lines.append(f"user-session={session_name}\n")
+        if not found_autologin:
+            lines.append(f"autologin-session={session_name}\n")
 
         content = "".join(lines)
         subprocess.run(

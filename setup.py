@@ -171,6 +171,13 @@ if [ ! -f "${{SCRIPT_DIR}}/{RUN_SCRIPT_NAME}" ]; then
     exit 1
 fi
 
+export DISPLAY="${{DISPLAY:-:0}}"
+
+for i in $(seq 1 30); do
+    xdpyinfo -display "$DISPLAY" >/dev/null 2>&1 && break
+    sleep 1
+done
+
 cd "${{SCRIPT_DIR}}"
 
 x-terminal-emulator -e bash -c '
