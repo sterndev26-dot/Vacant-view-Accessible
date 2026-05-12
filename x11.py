@@ -223,7 +223,6 @@ def install_x11_lightdm():
     print("Installing X11, lightdm, and unclutter...")
     run_cmd("sudo apt update")
     run_cmd("sudo apt install -y xserver-xorg lightdm unclutter")
-    run_cmd("sudo apt remove -y light-locker || true")
 
 
 def set_default_display_manager(dm):
