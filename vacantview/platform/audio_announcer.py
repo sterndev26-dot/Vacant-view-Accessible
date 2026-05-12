@@ -2,6 +2,7 @@ import subprocess
 import threading
 import time
 import os
+import re
 
 from vacantview.core.state import state
 import vacantview.config.config as cfg
@@ -10,6 +11,23 @@ _lock = threading.Lock()
 _last_trigger = 0.0
 _current_processes = []
 _pir = None
+_audio_devices = ['default']
+
+
+def _detect_devices():
+    try:
+        result = subprocess.run(['aplay', '-l'], capture_output=True, text=True, timeout=5)
+        found = []
+        for line in result.stdout.split('\n'):
+            if 'usb' in line.lower():
+                m = re.search(r'card (\d+):', line)
+                if m:
+                    device = f'plughw:{m.group(1)},0'
+                    if device not in found:
+                        found.append(device)
+        return found if found else ['default']
+    except Exception:
+        return ['default']
 
 
 def _is_accessible_vacant():
@@ -37,8 +55,7 @@ def _play_audio(filepath):
         if p.poll() is None:
             p.terminate()
     _current_processes = []
-    devices = [d.strip() for d in cfg.AUDIO_DEVICE.split(',') if d.strip()]
-    for device in devices:
+    for device in _audio_devices:
         p = subprocess.Popen(
             ['aplay', '-D', device, filepath],
             stdout=subprocess.DEVNULL,
@@ -55,9 +72,8 @@ def _play_audio_sync(filepath):
         if p.poll() is None:
             p.terminate()
     _current_processes = []
-    devices = [d.strip() for d in cfg.AUDIO_DEVICE.split(',') if d.strip()]
     procs = []
-    for device in devices:
+    for device in _audio_devices:
         p = subprocess.Popen(
             ['aplay', '-D', device, filepath],
             stdout=subprocess.DEVNULL,
@@ -101,9 +117,15 @@ def _on_motion():
 
 
 def start():
-    global _pir
+    global _pir, _audio_devices
     if not cfg.PIR_PIN:
         return
+    configured = cfg.AUDIO_DEVICE.strip()
+    if configured and configured != 'default':
+        _audio_devices = [d.strip() for d in configured.split(',') if d.strip()]
+    else:
+        _audio_devices = _detect_devices()
+    print(f"[AUDIO] Using devices: {_audio_devices}")
     for label, path in [
         ("AUDIO_VACANT", cfg.AUDIO_VACANT),
         ("AUDIO_OCCUPIED", cfg.AUDIO_OCCUPIED),
