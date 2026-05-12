@@ -120,9 +120,11 @@ def is_x11_session_active(dm, session_name):
     return False
 
 
-def switch_to_x11(dm):
+def switch_to_x11(dm, username=None):
     session_name = detect_x11_session()
-    print(f"Using X11 session: {session_name}")
+    if username is None:
+        username = os.getenv("SUDO_USER") or getpass.getuser()
+    print(f"Using X11 session: {session_name}, autologin user: {username}")
 
     if is_x11_session_active(dm, session_name):
         print(f"{session_name} already active, no changes needed.")
@@ -137,21 +139,27 @@ def switch_to_x11(dm):
             with open(conf_file, "r") as f:
                 lines = f.readlines()
 
-        found_session = found_autologin = False
+        found_session = found_autologin_session = found_autologin_user = False
         for i, line in enumerate(lines):
             if line.strip().startswith("user-session"):
                 lines[i] = f"user-session={session_name}\n"
                 found_session = True
             elif line.strip().startswith("autologin-session"):
                 lines[i] = f"autologin-session={session_name}\n"
-                found_autologin = True
+                found_autologin_session = True
+            elif line.strip().startswith("autologin-user="):
+                lines[i] = f"autologin-user={username}\n"
+                found_autologin_user = True
         if not found_session:
             lines.append(f"user-session={session_name}\n")
-        if not found_autologin:
+        if not found_autologin_session:
             lines.append(f"autologin-session={session_name}\n")
+        if not found_autologin_user:
+            lines.append(f"autologin-user={username}\n")
+            lines.append("autologin-user-timeout=0\n")
 
         subprocess.run(["sudo", "tee", conf_file], input="".join(lines), text=True, check=True)
-        print(f"lightdm configured for {session_name}.")
+        print(f"lightdm configured for {session_name}, autologin: {username}.")
 
     elif dm == "gdm3":
         conf_file = "/etc/gdm3/custom.conf"
@@ -230,7 +238,8 @@ def main_switch_to_x11(user_home=None):
 
     print(f"Detected display manager: {dm}")
 
-    switch_to_x11(dm)
+    username = os.getenv("SUDO_USER") or getpass.getuser()
+    switch_to_x11(dm, username)
     set_default_display_manager("lightdm")
     disable_console_blanking()
     disable_sleep_lxde(user_home)
