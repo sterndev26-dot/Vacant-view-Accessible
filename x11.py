@@ -35,6 +35,7 @@ def disable_sleep_lxde():
         "@xset -dpms",
         "@xset s noblank",
         "@unclutter -idle 10 -root",
+        "@bash -c 'pkill light-locker; true'",
     ]
 
     os.makedirs(autostart_dir, exist_ok=True)
@@ -222,6 +223,7 @@ def install_x11_lightdm():
     print("Installing X11, lightdm, and unclutter...")
     run_cmd("sudo apt update")
     run_cmd("sudo apt install -y xserver-xorg lightdm unclutter")
+    run_cmd("sudo apt remove -y light-locker || true")
 
 
 def set_default_display_manager(dm):
