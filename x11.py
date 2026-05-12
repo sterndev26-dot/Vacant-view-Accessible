@@ -10,15 +10,31 @@ def run_cmd(cmd):
     subprocess.run(cmd, shell=True, check=True)
 
 
+def disable_console_blanking():
+    cmdline_path = "/boot/firmware/cmdline.txt"
+    if not os.path.exists(cmdline_path):
+        print(f"{cmdline_path} not found, skipping.")
+        return
+    with open(cmdline_path, "r") as f:
+        content = f.read().strip()
+    if "consoleblank=0" not in content:
+        content += " consoleblank=0"
+        subprocess.run(["sudo", "tee", cmdline_path], input=content + "\n", text=True, check=True)
+        print("Console blanking disabled.")
+    else:
+        print("Console blanking already disabled.")
+
+
 def disable_sleep_lxde():
-    """Disable screen blanking, screensaver, and DPMS power saving for LXDE-pi-x session."""
+    """Disable screen blanking, screensaver, DPMS, and hide idle cursor."""
     autostart_dir = os.path.expanduser("~/.config/lxsession/LXDE-pi")
     autostart_file = os.path.join(autostart_dir, "autostart")
 
     disable_cmds = [
-        "@xset s off",       # Disable screensaver
-        "@xset -dpms",       # Disable DPMS (energy saving)
-        "@xset s noblank"    # Prevent screen blanking
+        "@xset s off",
+        "@xset -dpms",
+        "@xset s noblank",
+        "@unclutter -idle 10 -root",
     ]
 
     os.makedirs(autostart_dir, exist_ok=True)
@@ -198,9 +214,9 @@ def switch_to_x11(dm):
 
 
 def install_x11_lightdm():
-    print("Installing X11 (xserver-xorg) and lightdm...")
+    print("Installing X11, lightdm, and unclutter...")
     run_cmd("sudo apt update")
-    run_cmd("sudo apt install -y xserver-xorg lightdm")
+    run_cmd("sudo apt install -y xserver-xorg lightdm unclutter")
 
 
 def set_default_display_manager(dm):
@@ -235,6 +251,7 @@ def main_switch_to_x11():
 
     set_default_display_manager("lightdm")
 
+    disable_console_blanking()
     disable_sleep_lxde()
 
 
