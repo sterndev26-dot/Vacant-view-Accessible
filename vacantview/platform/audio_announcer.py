@@ -74,9 +74,9 @@ def start():
         if not path or not os.path.exists(path):
             print(f"[AUDIO] Warning: {label} not found at '{path}'")
     try:
-        from gpiozero import MotionSensor
-        _pir = MotionSensor(cfg.PIR_PIN, pull_up=True)
-        _pir.when_motion = _on_motion
+        from gpiozero import Button
+        _pir = Button(cfg.PIR_PIN, pull_up=True)
+        _pir.when_pressed = _on_motion
         print(f"[AUDIO] PIR sensor ready on GPIO {cfg.PIR_PIN}")
     except Exception as e:
         print(f"[AUDIO] PIR init failed: {e}")
