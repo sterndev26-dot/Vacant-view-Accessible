@@ -88,6 +88,8 @@ def add_wrapper_to_autostart_profile():
     start_line = f'"{wrapper_abs_path_str}" &  # wrapper-demo autostart\n'
 
     for user_name, user_home in get_users():
+        if user_name == "root":
+            continue
         profile_path = user_home / ".profile"
         if not profile_path.exists():
             print(f".profile not found for user {user_name} at {profile_path} — skipping")
