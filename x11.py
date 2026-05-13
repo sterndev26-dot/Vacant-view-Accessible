@@ -250,6 +250,7 @@ def install_x11_lightdm():
         'apt install -y -o Dpkg::Options::="--force-overwrite" raspberrypi-ui-mods',
         shell=True, check=False
     )
+    subprocess.run("apt install -f -y", shell=True, check=False)
 
 
 def set_default_display_manager(dm):
