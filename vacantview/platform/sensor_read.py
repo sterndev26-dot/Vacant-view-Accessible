@@ -109,15 +109,6 @@ def process_node_data_women(words):
 # UI update — runs in tkinter main thread via after()
 # ---------------------------------------------------------------------------
 
-def _wait_for_attrs(attrs, timeout=1.0):
-    start = time.time()
-    while not all(hasattr(state, a) for a in attrs):
-        if time.time() - start > timeout:
-            return False
-        time.sleep(0.05)
-    return True
-
-
 def _update_men_ui():
     total = len(state.addresses_string)
     state.bg_canvas.itemconfigure('Cubiculs_MEN', text=str(total))
@@ -133,7 +124,7 @@ def _update_men_ui():
         free = 0
         free_acc = 0
 
-    if not state.no_uart and _wait_for_attrs(['graph_M_GREEN', 'graph_M_RED']):
+    if not state.no_uart and hasattr(state, 'graph_M_GREEN') and hasattr(state, 'graph_M_RED'):
         _draw_indicators('graph_M_GREEN', 'graph_M_RED', free, occupied, total)
         state.bg_canvas.itemconfigure('accessible_vacant_indicator_men', text=str(free_acc))
         state.bg_canvas.itemconfigure('accessible_occup_indicator_men', text=str(occup_acc))
@@ -154,7 +145,7 @@ def _update_women_ui():
         free = 0
         free_acc = 0
 
-    if not state.no_uart and _wait_for_attrs(['graph_w_GREEN', 'graph_w_RED']):
+    if not state.no_uart and hasattr(state, 'graph_w_GREEN') and hasattr(state, 'graph_w_RED'):
         _draw_indicators('graph_w_GREEN', 'graph_w_RED', free, occupied, total)
         state.bg_canvas.itemconfigure('accessible_vacant_indicator_women', text=str(free_acc))
         state.bg_canvas.itemconfigure('accessible_occup_indicator_women', text=str(occup_acc))
