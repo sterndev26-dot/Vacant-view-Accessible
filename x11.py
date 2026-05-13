@@ -246,7 +246,10 @@ def install_x11_lightdm():
     print("Installing X11, lightdm, unclutter and desktop UI...")
     run_cmd("apt update")
     run_cmd("apt install -y xserver-xorg lightdm unclutter x11-utils")
-    subprocess.run("apt install -y raspberrypi-ui-mods", shell=True, check=False)
+    subprocess.run(
+        'apt install -y -o Dpkg::Options::="--force-overwrite" raspberrypi-ui-mods',
+        shell=True, check=False
+    )
 
 
 def set_default_display_manager(dm):
