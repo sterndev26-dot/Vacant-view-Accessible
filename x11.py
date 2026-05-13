@@ -255,14 +255,38 @@ def disable_dpms_in_lightdm():
 
 
 def install_x11_lightdm():
-    print("Installing X11, lightdm, unclutter and desktop UI...")
+    print("Installing X11, lightdm, LXDE desktop and utilities...")
     run_cmd("apt update")
-    run_cmd("apt install -y xserver-xorg lightdm unclutter x11-utils")
+    run_cmd("apt install -y xserver-xorg lightdm unclutter x11-utils lxde-core lxsession lxpanel pcmanfm openbox")
     subprocess.run(
         'apt install -y -o Dpkg::Options::="--force-overwrite" raspberrypi-ui-mods',
         shell=True, check=False
     )
     subprocess.run("apt install -f -y", shell=True, check=False)
+
+
+def set_boot_to_desktop_autologin(username):
+    """Use raspi-config to reliably set boot to graphical desktop with autologin."""
+    print(f"Setting boot to graphical desktop with autologin for '{username}'...")
+    try:
+        # B4 = Desktop Autologin
+        subprocess.run(['raspi-config', 'nonint', 'do_boot_behaviour', 'B4'], check=True)
+        print("Boot mode set to: Desktop Autologin.")
+    except Exception as e:
+        print(f"raspi-config boot behaviour failed ({e}), using fallback...")
+
+    # Fallback: configure lightdm autologin manually
+    conf_file = "/etc/lightdm/lightdm.conf"
+    sections = _read_ini(conf_file)
+    sections = _set_ini_key(sections, "Seat:*", "autologin-user", username)
+    sections = _set_ini_key(sections, "Seat:*", "autologin-user-timeout", "0")
+    content = _write_ini(sections)
+    subprocess.run(["tee", conf_file], input=content, text=True, check=False)
+
+    # Ensure graphical target is default
+    subprocess.run(['systemctl', 'set-default', 'graphical.target'], check=False)
+    subprocess.run(['systemctl', 'enable', 'lightdm'], check=False)
+    print("lightdm enabled and graphical.target set as default.")
 
 
 def set_default_display_manager(dm):
@@ -290,6 +314,8 @@ def main_switch_to_x11(user_home=None):
 
     install_x11_lightdm()
 
+    username = get_real_user()
+
     dm = detect_display_manager()
     if dm is None:
         print("Could not detect display manager. Defaulting to lightdm.")
@@ -297,9 +323,9 @@ def main_switch_to_x11(user_home=None):
 
     print(f"Detected display manager: {dm}")
 
-    username = get_real_user()
     switch_to_x11(dm, username)
     set_default_display_manager("lightdm")
+    set_boot_to_desktop_autologin(username)
     disable_console_blanking()
     disable_dpms_in_lightdm()
     disable_sleep_lxde(user_home)
