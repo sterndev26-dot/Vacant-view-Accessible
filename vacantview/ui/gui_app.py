@@ -499,15 +499,11 @@ def start_app():
     state.bg_canvas.itemconfigure('cleaning_message_1', state='hidden')
     state.bg_canvas.itemconfigure('cleaning_message_2', state='hidden')
  
-    '''if not state.no_uart:
-        state.sensor_thread = threading.Thread(target=sensor_read.read_all_data)
-        state.monitor_thread = threading.Thread(target=monitor_user_select)
-        state.monitor_thread.start()
-        state.sensor_thread.start()'''
-    state.sensor_thread = threading.Thread(target=sensor_read.read_all_data)
-    state.monitor_thread = threading.Thread(target=monitor_user_select)
+    state.monitor_thread = threading.Thread(target=monitor_user_select, daemon=True)
     state.monitor_thread.start()
-    state.sensor_thread.start()
+    if not state.no_uart:
+        sensor_read.start_reader_threads()
+    win.after(200, sensor_read.read_all_data)
 
     gpio_control.setup_gpio_interrupt() 
     
