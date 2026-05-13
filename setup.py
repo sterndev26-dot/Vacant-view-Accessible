@@ -95,16 +95,14 @@ def add_wrapper_to_autostart():
         _chown_to_user(autostart_dir)
         print(f"Created autostart desktop entry: {desktop_file}")
 
-        # .profile fallback for console login
+        # Remove any old .profile fallback line that causes double-start
         profile_path = user_home / ".profile"
         if profile_path.exists():
-            content = profile_path.read_text()
-            if wrapper_str not in content:
-                with open(profile_path, "a") as f:
-                    f.write(f'\n# VacantView autostart\n"{wrapper_str}" &\n')
-                print(f"Added wrapper fallback to {profile_path}")
-            else:
-                print(f"Wrapper already in {profile_path} — skipping")
+            lines = profile_path.read_text().splitlines(keepends=True)
+            new_lines = [l for l in lines if wrapper_str not in l and "VacantView autostart" not in l]
+            if len(new_lines) != len(lines):
+                profile_path.write_text("".join(new_lines))
+                print(f"Removed old .profile autostart line from {profile_path}")
 
 
 def remove_wrapper_from_autostart():

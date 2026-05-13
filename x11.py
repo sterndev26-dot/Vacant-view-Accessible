@@ -36,10 +36,22 @@ def disable_console_blanking():
         return
     with open(cmdline_path, "r") as f:
         content = f.read().strip()
+    modified = False
+    # Disable screen blanking
     if "consoleblank=0" not in content:
         content += " consoleblank=0"
+        modified = True
+    # Remove splash/plymouth to stop boot flicker
+    for token in ("splash", "plymouth.ignore-serial-consoles", "quiet"):
+        if token in content:
+            content = content.replace(token, "").strip()
+            # Clean up double spaces
+            while "  " in content:
+                content = content.replace("  ", " ")
+            modified = True
+    if modified:
         subprocess.run(["sudo", "tee", cmdline_path], input=content + "\n", text=True, check=True)
-        print("Console blanking disabled.")
+        print("Console blanking disabled and splash screen removed.")
     else:
         print("Console blanking already disabled.")
 

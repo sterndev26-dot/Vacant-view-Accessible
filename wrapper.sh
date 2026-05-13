@@ -2,6 +2,14 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
+# Prevent multiple instances — only one wrapper may run at a time
+LOCKFILE="/tmp/vacantview_wrapper.lock"
+exec 9>"$LOCKFILE"
+if ! flock -n 9; then
+    echo "VacantView already running, exiting duplicate."
+    exit 0
+fi
+
 if [ ! -f "${SCRIPT_DIR}/venv/bin/activate" ]; then
     echo "Virtual environment not found at ${SCRIPT_DIR}/venv/bin/activate"
     exit 1
@@ -12,8 +20,9 @@ if [ ! -f "${SCRIPT_DIR}/run.py" ]; then
     exit 1
 fi
 
-# Kill any existing instance to release GPIO
+# Kill any existing run.py and lgpio daemon to fully release GPIO
 pkill -f "${SCRIPT_DIR}/run.py" 2>/dev/null || true
+pkill lgd 2>/dev/null || true
 sleep 1
 
 export DISPLAY="${DISPLAY:-:0}"
@@ -32,6 +41,9 @@ fi
 xset s off 2>/dev/null || true
 xset -dpms 2>/dev/null || true
 xset s noblank 2>/dev/null || true
+
+# Ensure desktop is shown
+pcmanfm --desktop 2>/dev/null &
 
 cd "${SCRIPT_DIR}"
 
