@@ -10,7 +10,8 @@ import tkinter as tk
 import tkinter.font
 import os
 
-load_dotenv('.env')
+_ENV_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '.env')
+load_dotenv(_ENV_PATH)
 
 class GlobalState:
     
@@ -116,7 +117,7 @@ class GlobalState:
         
         self.open_window = []
         
-        self.DEBUG = os.getenv("DEBUG").lower() in ("true",1)
+        self.DEBUG = os.getenv("DEBUG", "false").lower() in ("true", "1")
         
         self.admin_button : Any
         

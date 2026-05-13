@@ -21,7 +21,7 @@ from vacantview.ui.context_menu.context_menu import show_context_menu
 from vacantview.admin.utils.user_editor import open_admin_settings
 from vacantview.admin.pin_entry import open_pin_window
 
-from vacantview.config.config import FULLSCREEN_ON_LOAD, WIDTH, HEIGH, NAME_MODE
+from vacantview.config.config import FULLSCREEN_ON_LOAD, WIDTH, HEIGH, NAME_MODE, LOGO_DIR, LOGO_ACCESSIBLE
 
 from vacantview.tests.test_ports import available_ports
 from vacantview.ui.context_menu.rtl_func import prepare_text_for_widget
@@ -34,7 +34,7 @@ import gettext
 import os
 
 
-localedir = 'vacantview/locale'
+localedir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'locale')
 
 lang = gettext.translation('messages', localedir=localedir, languages=[state.current_lang], fallback=True)
 lang.install()

@@ -4,27 +4,28 @@ import subprocess
 import sys
 from pathlib import Path
 import getpass
+import pwd
 
 from x11 import main_switch_to_x11, disable_sleep_lxde
 
+# Always resolve paths relative to this script's location, not cwd
+SCRIPT_DIR = Path(__file__).resolve().parent
 
 # Get the username who invoked sudo or fallback to the current user
 USER_NAME = os.getenv("SUDO_USER") or getpass.getuser()
 # Define home directory path for that user
 USER_HOME = Path(f"/home/{USER_NAME}")
-# Path to user's .bashrc (not used currently, but defined)
-USER_BASHRC_PATH = USER_HOME / ".bashrc"
 
 # Path to Raspberry Pi config.txt file (system config)
 CONFIG_PATH = "/boot/firmware/config.txt"
 # Backup path for the original config file
 BACKUP_PATH = "/boot/firmware/config_backup_uart.txt"
-# Virtual environment directory path (relative to script location)
-VENV_PATH = Path("./venv")
+# Virtual environment directory path
+VENV_PATH = SCRIPT_DIR / "venv"
 # Python requirements file with dependencies
-REQUIREMENTS_FILE = "requirements.txt"
-# Wrapper shell script file name
-WRAPPER_PATH = "wrapper.sh"
+REQUIREMENTS_FILE = SCRIPT_DIR / "requirements.txt"
+# Wrapper shell script
+WRAPPER_PATH = SCRIPT_DIR / "wrapper.sh"
 # Name of the main Python script to run inside the wrapper
 RUN_SCRIPT_NAME = "run.py"
 
@@ -34,7 +35,7 @@ OVERLAYS = [
     "dtoverlay=uart3,txd_pin=4,rxd_pin=5",
     "dtoverlay=uart4,txd_pin=8,rxd_pin=9",
     "dtoverlay=uart5,txd_pin=12,rxd_pin=13",
-    "dtoverlay=disable-bt"  # disable Bluetooth to free UART
+    "dtoverlay=disable-bt"
 ]
 
 # Modifications to existing config.txt parameters (key=old, value=new)
@@ -43,128 +44,104 @@ MODIFICATIONS = {
     "camera_auto_detect=1": "camera_auto_detect=0",
 }
 
-# Paths used for bashrc and absolute wrapper script
-BASHRC_PATH = Path.home() / ".bashrc"
-WRAPPER_ABS_PATH = str(Path.cwd() / WRAPPER_PATH)
 
-
-def get_autostart_dir(user_home):
-    """
-    Returns the autostart directory path inside a user's config folder.
-    This directory can be used for .desktop files to autostart applications.
-    """
-    return user_home / ".config" / "autostart"
+def _chown_to_user(path):
+    """Change file ownership to the real (non-root) user."""
+    try:
+        pw = pwd.getpwnam(USER_NAME)
+        os.chown(path, pw.pw_uid, pw.pw_gid)
+    except Exception as e:
+        print(f"Warning: could not chown {path} to {USER_NAME}: {e}")
 
 
 def get_users():
-    """
-    Get a list of tuples (username, home_path) for relevant users:
-    - The sudo user who ran the script (or current user)
-    - The root user
-    Only if their home directories exist.
-    """
     users = []
-    user_name = os.getenv("SUDO_USER") or getpass.getuser()
-    user_home = Path(f"/home/{user_name}")
+    user_home = USER_HOME
     if user_home.exists():
-        users.append((user_name, user_home))
-
+        users.append((USER_NAME, user_home))
     root_home = Path("/root")
     if root_home.exists():
         users.append(("root", root_home))
-
     return users
 
 
-def add_wrapper_to_autostart_profile():
+def add_wrapper_to_autostart():
     """
-    Add a line to users' .profile files that starts the wrapper.sh script in the background.
-    This ensures the Python script will launch on user login (both terminal and GUI).
-    Avoids duplicates and checks if .profile exists.
+    Create an XDG autostart .desktop file so the wrapper starts on GUI login.
+    This works reliably with LightDM autologin on Raspberry Pi OS.
+    Also adds a fallback line to .profile for console-only sessions.
     """
-    wrapper_abs_path = Path.cwd() / WRAPPER_PATH
-    wrapper_abs_path_str = str(wrapper_abs_path)
-    # Оборачиваем путь в кавычки
-    start_line = f'"{wrapper_abs_path_str}" &  # wrapper-demo autostart\n'
+    wrapper_str = str(WRAPPER_PATH)
 
     for user_name, user_home in get_users():
         if user_name == "root":
             continue
+
+        # XDG autostart (works for all desktop managers)
+        autostart_dir = user_home / ".config" / "autostart"
+        autostart_dir.mkdir(parents=True, exist_ok=True)
+        desktop_file = autostart_dir / "vacantview.desktop"
+        desktop_content = (
+            "[Desktop Entry]\n"
+            "Type=Application\n"
+            "Name=VacantView\n"
+            f"Exec={wrapper_str}\n"
+            "Hidden=false\n"
+            "NoDisplay=false\n"
+            "X-GNOME-Autostart-enabled=true\n"
+        )
+        desktop_file.write_text(desktop_content)
+        _chown_to_user(desktop_file)
+        _chown_to_user(autostart_dir)
+        print(f"Created autostart desktop entry: {desktop_file}")
+
+        # .profile fallback for console login
         profile_path = user_home / ".profile"
-        if not profile_path.exists():
-            print(f".profile not found for user {user_name} at {profile_path} — skipping")
-            continue
-
-        with open(profile_path, "r") as f:
-            content = f.readlines()
-
-        # Skip if autostart line already present
-        if any(wrapper_abs_path_str in line for line in content):
-            print(f"wrapper.sh autostart line already exists in {profile_path} for user {user_name} — skipping")
-            continue
-
-        try:
-            with open(profile_path, "a") as f:
-                f.write("\n# Added by UART setup script\n")
-                f.write(start_line)
-            print(f"Added wrapper.sh autostart line to {profile_path} for user {user_name}")
-        except Exception as e:
-            print(f"Failed to add autostart line to {profile_path} for user {user_name}: {e}")
+        if profile_path.exists():
+            content = profile_path.read_text()
+            if wrapper_str not in content:
+                with open(profile_path, "a") as f:
+                    f.write(f'\n# VacantView autostart\n"{wrapper_str}" &\n')
+                print(f"Added wrapper fallback to {profile_path}")
+            else:
+                print(f"Wrapper already in {profile_path} — skipping")
 
 
-
-def remove_wrapper_from_autostart_profile():
-    """
-    Remove the wrapper.sh autostart line from all relevant users' .profile files,
-    if it exists. This disables automatic startup of the wrapper script.
-    """
-    wrapper_abs_path = str(Path.cwd() / WRAPPER_PATH)
+def remove_wrapper_from_autostart():
+    """Remove both the .desktop autostart entry and the .profile fallback line."""
+    wrapper_str = str(WRAPPER_PATH)
 
     for user_name, user_home in get_users():
+        desktop_file = user_home / ".config" / "autostart" / "vacantview.desktop"
+        if desktop_file.exists():
+            desktop_file.unlink()
+            print(f"Removed {desktop_file}")
+        else:
+            print(f"No desktop autostart file at {desktop_file}")
+
         profile_path = user_home / ".profile"
-        if not profile_path.exists():
-            print(f".profile not found for user {user_name} at {profile_path} — skipping")
-            continue
-
-        try:
-            with open(profile_path, "r") as f:
-                lines = f.readlines()
-
-            new_lines = []
-            removed = False
-            for line in lines:
-                # Remove only the exact line added by this script
-                if wrapper_abs_path in line and "# wrapper-demo autostart" in line:
-                    removed = True
-                    continue
-                new_lines.append(line)
-
-            if removed:
-                with open(profile_path, "w") as f:
-                    f.writelines(new_lines)
-                print(f"Removed wrapper.sh autostart line from {profile_path} for user {user_name}")
-            else:
-                print(f"No wrapper.sh autostart line found in {profile_path} for user {user_name}")
-        except Exception as e:
-            print(f"Failed to remove autostart line from {profile_path} for user {user_name}: {e}")
+        if profile_path.exists():
+            lines = profile_path.read_text().splitlines(keepends=True)
+            new_lines = [l for l in lines if wrapper_str not in l and "VacantView autostart" not in l]
+            if len(new_lines) != len(lines):
+                profile_path.write_text("".join(new_lines))
+                print(f"Removed wrapper from {profile_path}")
 
 
 def create_wrapper_script():
     """
-    Create the wrapper.sh script that:
-    - Checks that the virtual environment and run.py exist
-    - Changes directory to the script's directory
-    - Opens a terminal emulator
-    - Activates the virtual environment
-    - Runs the main Python script
-    - Keeps the terminal open after the script ends
+    Create wrapper.sh that kills any existing instance, waits for display,
+    then opens a terminal and runs the app using absolute paths.
     """
+    venv_activate = str(VENV_PATH / "bin" / "activate")
+    run_script = str(SCRIPT_DIR / RUN_SCRIPT_NAME)
+
     wrapper_content = f"""#!/bin/bash
 
-SCRIPT_DIR="$(cd "$(dirname "${{BASH_SOURCE[0]}}")" && pwd)"
+SCRIPT_DIR="{SCRIPT_DIR}"
 
-if [ ! -f "${{SCRIPT_DIR}}/{VENV_PATH}/bin/activate" ]; then
-    echo "Virtual environment not found at ${{SCRIPT_DIR}}/{VENV_PATH}/bin/activate"
+if [ ! -f "${{SCRIPT_DIR}}/venv/bin/activate" ]; then
+    echo "Virtual environment not found at ${{SCRIPT_DIR}}/venv/bin/activate"
     exit 1
 fi
 
@@ -173,6 +150,10 @@ if [ ! -f "${{SCRIPT_DIR}}/{RUN_SCRIPT_NAME}" ]; then
     exit 1
 fi
 
+# Kill any existing instance to release GPIO
+pkill -f "${{SCRIPT_DIR}}/{RUN_SCRIPT_NAME}" 2>/dev/null || true
+sleep 1
+
 export DISPLAY="${{DISPLAY:-:0}}"
 
 for i in $(seq 1 30); do
@@ -180,56 +161,59 @@ for i in $(seq 1 30); do
     sleep 1
 done
 
+if ! xdpyinfo -display "$DISPLAY" >/dev/null 2>&1; then
+    echo "Display $DISPLAY not available after 30s, aborting."
+    exit 1
+fi
+
+# Disable screen sleep
+xset s off 2>/dev/null || true
+xset -dpms 2>/dev/null || true
+xset s noblank 2>/dev/null || true
+
 cd "${{SCRIPT_DIR}}"
 
-x-terminal-emulator -e bash -c '
-    echo "Activating virtual environment...";
-    source {VENV_PATH}/bin/activate;
-    echo "Running {RUN_SCRIPT_NAME}...";
-    python {RUN_SCRIPT_NAME};
-    echo "";
-    echo "Done. Staying in virtual environment.";
+x-terminal-emulator -e bash -c "
+    echo 'Activating virtual environment...';
+    source {venv_activate};
+    echo 'Running {RUN_SCRIPT_NAME}...';
+    python {run_script};
+    echo '';
+    echo 'Done. Staying in virtual environment.';
     exec bash
-    '
+"
 """
-    try:
-        with open(WRAPPER_PATH, "w") as f:
-            f.write(wrapper_content)
-        os.chmod(WRAPPER_PATH, 0o755)  # Make script executable
-        print(f"Created and made '{WRAPPER_PATH}' executable.")
-    except Exception as e:
-        print(f"Failed to create '{WRAPPER_PATH}': {e}")
+    WRAPPER_PATH.write_text(wrapper_content)
+    WRAPPER_PATH.chmod(0o755)
+    print(f"Created wrapper script: {WRAPPER_PATH}")
 
 
 def make_wrapper_executable():
-    """
-    Ensure wrapper.sh is executable.
-    """
-    if os.path.exists(WRAPPER_PATH):
-        os.chmod(WRAPPER_PATH, 0o755)
-        print(f"Made '{WRAPPER_PATH}' executable (chmod +x).")
+    if WRAPPER_PATH.exists():
+        WRAPPER_PATH.chmod(0o755)
+        print(f"Made '{WRAPPER_PATH}' executable.")
     else:
         print(f"Wrapper script '{WRAPPER_PATH}' not found — skipping chmod.")
 
 
 def create_venv_and_install_deps():
-    """
-    Install system dependencies required for PyQt6 graphical support,
-    create a Python virtual environment if it does not exist,
-    then install Python packages from requirements.txt and PyQt6.
-    """
-    print("Installing system dependencies required for Qt and XCB plugins...")
+    print("Installing system dependencies...")
+    subprocess.run(["apt", "update"], check=True)
     subprocess.run([
-        "sudo", "apt", "update"
-    ], check=True)
-    subprocess.run([
-        "sudo", "apt", "install", "-y",
+        "apt", "install", "-y",
+        # X11 / XCB
         "libxcb-cursor0", "libxcb-xinerama0", "libxcb-xfixes0", "libxcb-icccm4",
         "libxcb-image0", "libxcb-keysyms1", "libxcb-render-util0", "libxcb-render0",
         "libxcb-shape0", "libxcb-shm0", "libxcb-sync1", "libxcb-xkb1", "libxkbcommon-x11-0",
         "libx11-xcb1", "libxrender1", "libxext6", "libxi6", "libgl1",
-        "qt5-qmake", "qtbase5-dev", "alsa-utils",
-        "python3-dev", "liblgpio-dev", "swig"
+        "qt5-qmake", "qtbase5-dev",
+        # Audio
+        "alsa-utils",
+        # GPIO / Python
+        "python3-dev", "liblgpio-dev", "swig",
+        # Display utilities
+        "x11-utils",    # provides xdpyinfo
+        "unclutter",    # hides cursor
     ], check=True)
 
     print("Creating virtual environment and installing Python dependencies...")
@@ -239,22 +223,18 @@ def create_venv_and_install_deps():
     else:
         print(f"Virtual environment already exists at {VENV_PATH}")
 
-    if not os.path.exists(REQUIREMENTS_FILE):
+    if not REQUIREMENTS_FILE.exists():
         print(f"{REQUIREMENTS_FILE} not found. Skipping dependency installation.")
         return
 
     venv_pip = str(VENV_PATH / "bin" / "pip")
-
     subprocess.run([venv_pip, "install", "--upgrade", "pip", "setuptools", "wheel"], check=True)
     subprocess.run([venv_pip, "install", "--only-binary=:all:", "PyQt6"], check=True)
-    subprocess.run([venv_pip, "install", "-r", REQUIREMENTS_FILE, "--no-deps"], check=True)
-    print(f"Dependencies installed from {REQUIREMENTS_FILE} and required packages.")
+    subprocess.run([venv_pip, "install", "-r", str(REQUIREMENTS_FILE), "--no-deps"], check=True)
+    print("Dependencies installed.")
 
 
 def backup_config():
-    """
-    Backup the existing config.txt to a backup file.
-    """
     if os.path.exists(CONFIG_PATH):
         shutil.copy(CONFIG_PATH, BACKUP_PATH)
         print(f"Backup created at {BACKUP_PATH}")
@@ -263,9 +243,6 @@ def backup_config():
 
 
 def restore_config():
-    """
-    Restore the config.txt from the backup if it exists.
-    """
     if os.path.exists(BACKUP_PATH):
         shutil.copy(BACKUP_PATH, CONFIG_PATH)
         print(f"Restored original config from {BACKUP_PATH}")
@@ -275,12 +252,6 @@ def restore_config():
 
 
 def modify_config_file():
-    """
-    Modify config.txt by:
-    - Replacing specific lines according to MODIFICATIONS dict
-    - Adding overlays from OVERLAYS list if not present
-    Returns True if file modified, False otherwise.
-    """
     if not os.path.exists(CONFIG_PATH):
         print(f"Error: {CONFIG_PATH} not found.")
         return False
@@ -294,13 +265,12 @@ def modify_config_file():
         modified = False
         for old, new in MODIFICATIONS.items():
             if line.strip().startswith(old):
-                new_lines.append(new)  # replace line
+                new_lines.append(new)
                 modified = True
                 break
         if not modified:
             new_lines.append(line)
 
-    # Add overlays if missing
     for overlay in OVERLAYS:
         if overlay not in existing and overlay not in new_lines:
             new_lines.append(overlay)
@@ -313,9 +283,6 @@ def modify_config_file():
 
 
 def enable_serial_port_interface():
-    """
-    Enable UART serial port and disable serial console via raspi-config CLI.
-    """
     try:
         subprocess.run(
             ["raspi-config", "nonint", "do_serial", "2"],
@@ -327,10 +294,6 @@ def enable_serial_port_interface():
 
 
 def prompt_reboot():
-    """
-    Ask the user if they want to reboot immediately.
-    If yes, reboot the system, else remind to reboot later.
-    """
     choice = input("Reboot now? (y/N): ").strip().lower()
     if choice == "y":
         print("Rebooting system...")
@@ -340,21 +303,19 @@ def prompt_reboot():
 
 
 def main():
-    # Check for root privileges
     if os.geteuid() != 0:
         print("Please run this script with sudo.")
         return
 
     print("UART Setup Script")
 
-    # User menu for action selection
     action = input(
         "Select action:\n"
-        "  1) Apply full UART setup (with venv, dependencies, add wrapper.sh to autostart)\n"
+        "  1) Apply full UART setup (with venv, dependencies, add wrapper to autostart)\n"
         "  2) Restore original config\n"
         "  3) Only create venv and install dependencies\n"
-        "  4) Add wrapper.sh to autostart only\n"
-        "  5) Remove wrapper.sh from autostart\n"
+        "  4) Add wrapper to autostart only\n"
+        "  5) Remove wrapper from autostart\n"
         "Choice [1/2/3/4/5]: "
     ).strip()
 
@@ -368,26 +329,25 @@ def main():
     elif action == "4":
         create_wrapper_script()
         make_wrapper_executable()
-        add_wrapper_to_autostart_profile()
+        add_wrapper_to_autostart()
         return
     elif action == "5":
-        remove_wrapper_from_autostart_profile()
+        remove_wrapper_from_autostart()
         return
     elif action != "1":
-        print(" Invalid choice. Exiting.")
+        print("Invalid choice. Exiting.")
         return
 
-    # Full setup flow:
+    # Full setup flow
     create_venv_and_install_deps()
     create_wrapper_script()
     backup_config()
     print("Modifying UART and system configuration...")
     modified = modify_config_file()
-
     print("Enabling serial interface...")
     enable_serial_port_interface()
     make_wrapper_executable()
-    add_wrapper_to_autostart_profile()
+    add_wrapper_to_autostart()
     main_switch_to_x11(USER_HOME)
     if modified:
         prompt_reboot()
