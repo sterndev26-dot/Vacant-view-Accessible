@@ -1,17 +1,9 @@
 import serial
-import threading
-import time
-import os
 
 from vacantview.core.state import state
 from vacantview.ui.gui_elements import CE
 
 update_elements = CE()
-
-# How often to send a broadcast poll request to all nodes (seconds)
-POLL_INTERVAL = 5
-
-_stop_event = threading.Event()
 
 
 # ---------------------------------------------------------------------------
@@ -29,52 +21,27 @@ def get_data():
 
 
 # ---------------------------------------------------------------------------
-# Background reader threads — one per serial port
+# Serial readers — called from main thread, non-blocking
 # ---------------------------------------------------------------------------
 
-def _reader_thread(get_ser, process_fn, port_label):
-    """
-    Continuously read from a serial port in a background thread.
-    Maintains a buffer so messages are never split across reads.
-    Parses every complete message ending with '##'.
-    """
-    buf = ""
-    while not _stop_event.is_set():
-        ser = get_ser()
-        if not ser or not ser.is_open:
-            time.sleep(0.5)
-            continue
-        try:
-            waiting = ser.in_waiting
-            if waiting:
-                chunk = ser.read(waiting).decode('utf-8', errors='ignore')
-                buf += chunk
-                # Extract all complete messages (delimited by ##)
-                while '##' in buf:
-                    msg, buf = buf.split('##', 1)
-                    msg = msg.strip()
-                    if 'AT+NODE' in msg:
-                        try:
-                            process_fn(msg)
-                        except Exception as e:
-                            print(f"[UART] parse error on {port_label}: {e}")
-            else:
-                time.sleep(0.02)
-        except serial.SerialException as e:
-            print(f"[UART] {port_label} serial error: {e}")
-            buf = ""
-            time.sleep(1)
-        except Exception as e:
-            print(f"[UART] {port_label} unexpected error: {e}")
-            buf = ""
-            time.sleep(0.5)
-
-
-def _poll_thread():
-    """Periodically broadcast a data request so nodes keep responding."""
-    while not _stop_event.is_set():
-        get_data()
-        time.sleep(POLL_INTERVAL)
+def _read_port(ser, process_fn, label):
+    if not ser or not ser.is_open:
+        return
+    try:
+        waiting = ser.in_waiting
+        if not waiting:
+            return
+        received = ser.read(waiting).decode('utf-8', errors='ignore')
+        for msg in received.split('##'):
+            if 'AT+NODE' in msg:
+                try:
+                    process_fn(msg)
+                except Exception as e:
+                    print(f"[UART] {label} parse error: {e}")
+    except serial.SerialException as e:
+        print(f"[UART] {label} serial error: {e}")
+    except Exception as e:
+        print(f"[UART] {label} error: {e}")
 
 
 # ---------------------------------------------------------------------------
@@ -106,17 +73,17 @@ def process_node_data_women(words):
 
 
 # ---------------------------------------------------------------------------
-# UI update — runs in tkinter main thread via after()
+# UI update helpers — all run in tkinter main thread
 # ---------------------------------------------------------------------------
 
 def _update_men_ui():
     total = len(state.addresses_string)
     state.bg_canvas.itemconfigure('Cubiculs_MEN', text=str(total))
 
-    free_acc = sum(1 for v in state.OccupiedCounter_string_MEN_acc.values() if v == '0')
+    free_acc  = sum(1 for v in state.OccupiedCounter_string_MEN_acc.values() if v == '0')
     occup_acc = sum(1 for v in state.OccupiedCounter_string_MEN_acc.values() if v == '1')
-    free = sum(1 for v in state.OccupiedCounter_string.values() if v == '0') + free_acc
-    occupied = total - free
+    free      = sum(1 for v in state.OccupiedCounter_string.values() if v == '0') + free_acc
+    occupied  = total - free
 
     if state.clean_mode_button_1:
         occup_acc += free_acc
@@ -134,10 +101,10 @@ def _update_women_ui():
     total = len(state.addresses_string_WOMEN)
     state.bg_canvas.itemconfigure('Cubiculs_WOMEN', text=str(total))
 
-    free_acc = sum(1 for v in state.OccupiedCounter_string_WOMEN_acc.values() if v == '0')
+    free_acc  = sum(1 for v in state.OccupiedCounter_string_WOMEN_acc.values() if v == '0')
     occup_acc = sum(1 for v in state.OccupiedCounter_string_WOMEN_acc.values() if v == '1')
-    free = sum(1 for v in state.OccupiedCounter_string_WOMEN.values() if v == '0') + free_acc
-    occupied = total - free
+    free      = sum(1 for v in state.OccupiedCounter_string_WOMEN.values() if v == '0') + free_acc
+    occupied  = total - free
 
     if state.clean_mode_button_2:
         occup_acc += free_acc
@@ -166,11 +133,24 @@ def _draw_indicators(tag_green, tag_red, free, occupied, total):
         update_elements.update_rounded_data(r, occupied, total, tag_red)
 
 
+# ---------------------------------------------------------------------------
+# Main loop — runs in tkinter main thread every 200ms
+# ---------------------------------------------------------------------------
+
 def read_all_data():
-    """Called in the tkinter main thread every 200ms to refresh the UI."""
+    """
+    Poll both UART ports, read responses, update UI.
+    Scheduled via win.after(200, read_all_data) — never blocks.
+    """
     if state.flag_monitor_thread:
         return
     try:
+        # Always poll and read BOTH ports every cycle
+        get_data()
+        _read_port(state.ser1, process_node_data_men,   'MEN')
+        _read_port(state.ser2, process_node_data_women, 'WOMEN')
+
+        # Update UI for the selected mode
         mode = state.string_genderSelect.get()
         if mode in ('MEN', 'BOTH'):
             _update_men_ui()
@@ -178,43 +158,24 @@ def read_all_data():
             _update_women_ui()
     except Exception as e:
         print(f"[UI] update error: {e}")
+
     state.win.after(200, read_all_data)
 
 
 # ---------------------------------------------------------------------------
-# Start / stop
+# Start / stop (stubs — reading happens in main thread via read_all_data)
 # ---------------------------------------------------------------------------
 
 def start_reader_threads():
-    """Launch background threads for serial reading and periodic polling."""
-    _stop_event.clear()
-
-    threading.Thread(
-        target=_reader_thread,
-        args=(lambda: state.ser1, process_node_data_men, 'ser1'),
-        daemon=True, name='uart-men'
-    ).start()
-
-    threading.Thread(
-        target=_reader_thread,
-        args=(lambda: state.ser2, process_node_data_women, 'ser2'),
-        daemon=True, name='uart-women'
-    ).start()
-
-    threading.Thread(
-        target=_poll_thread,
-        daemon=True, name='uart-poll'
-    ).start()
-
-    print("[UART] Reader threads started.")
+    pass
 
 
 def stop_reader_threads():
-    _stop_event.set()
+    pass
 
 
 # ---------------------------------------------------------------------------
-# Cleaning mode button handlers (unchanged logic)
+# Cleaning mode button handlers
 # ---------------------------------------------------------------------------
 
 def _toggle_cleaning(btn_num, clean_attr, msg1_tag, msg2_tag, msg1_add_tag, msg2_add_tag, mode_check):
