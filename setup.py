@@ -129,27 +129,26 @@ def remove_wrapper_from_autostart():
 def create_wrapper_script():
     """
     Create wrapper.sh that kills any existing instance, waits for display,
-    then opens a terminal and runs the app using absolute paths.
+    then runs the app silently (no terminal window). Output goes to log file.
     """
     venv_activate = str(VENV_PATH / "bin" / "activate")
     run_script = str(SCRIPT_DIR / RUN_SCRIPT_NAME)
+    log_file = str(SCRIPT_DIR / "vacantview.log")
 
     wrapper_content = f"""#!/bin/bash
 
 SCRIPT_DIR="{SCRIPT_DIR}"
+LOG="{log_file}"
+LOCKFILE="/tmp/vacantview_wrapper.lock"
 
-if [ ! -f "${{SCRIPT_DIR}}/venv/bin/activate" ]; then
-    echo "Virtual environment not found at ${{SCRIPT_DIR}}/venv/bin/activate"
-    exit 1
-fi
-
-if [ ! -f "${{SCRIPT_DIR}}/{RUN_SCRIPT_NAME}" ]; then
-    echo "{RUN_SCRIPT_NAME} not found in ${{SCRIPT_DIR}}"
-    exit 1
+exec 9>"$LOCKFILE"
+if ! flock -n 9; then
+    exit 0
 fi
 
 # Kill any existing instance to release GPIO
 pkill -f "${{SCRIPT_DIR}}/{RUN_SCRIPT_NAME}" 2>/dev/null || true
+pkill lgd 2>/dev/null || true
 sleep 1
 
 export DISPLAY="${{DISPLAY:-:0}}"
@@ -160,7 +159,7 @@ for i in $(seq 1 30); do
 done
 
 if ! xdpyinfo -display "$DISPLAY" >/dev/null 2>&1; then
-    echo "Display $DISPLAY not available after 30s, aborting."
+    echo "$(date): Display $DISPLAY not available after 30s, aborting." >> "$LOG"
     exit 1
 fi
 
@@ -169,17 +168,13 @@ xset s off 2>/dev/null || true
 xset -dpms 2>/dev/null || true
 xset s noblank 2>/dev/null || true
 
-cd "${{SCRIPT_DIR}}"
+pcmanfm --desktop 2>/dev/null &
 
-x-terminal-emulator -e bash -c "
-    echo 'Activating virtual environment...';
-    source {venv_activate};
-    echo 'Running {RUN_SCRIPT_NAME}...';
-    python {run_script};
-    echo '';
-    echo 'Done. Staying in virtual environment.';
-    exec bash
-"
+cd "${{SCRIPT_DIR}}"
+source "{venv_activate}"
+echo "$(date): Starting VacantView" >> "$LOG"
+python "{run_script}" >> "$LOG" 2>&1
+echo "$(date): VacantView exited" >> "$LOG"
 """
     WRAPPER_PATH.write_text(wrapper_content)
     WRAPPER_PATH.chmod(0o755)
