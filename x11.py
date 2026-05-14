@@ -41,8 +41,8 @@ def disable_console_blanking():
     if "consoleblank=0" not in content:
         content += " consoleblank=0"
         modified = True
-    # Remove splash/plymouth to stop boot flicker
-    for token in ("splash", "plymouth.ignore-serial-consoles", "quiet"):
+    # Remove splash/plymouth to stop boot flicker — keep "quiet" to hide kernel messages
+    for token in ("splash", "plymouth.ignore-serial-consoles"):
         if token in content:
             content = content.replace(token, "").strip()
             # Clean up double spaces
