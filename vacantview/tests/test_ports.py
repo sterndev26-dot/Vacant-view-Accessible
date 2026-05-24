@@ -68,12 +68,23 @@ def available_ports(tk_module):
                 state.ser2 = serial.Serial(uart2, 115200)
                 time.sleep(5)
                 state.is_accessible = check_accessible_cubicles(state.ser1, state.ser2)
+                # Retry up to 2 more times if nodes haven't booted yet (both returned 1)
+                for _ in range(2):
+                    if state.is_accessible != (1, 1):
+                        break
+                    time.sleep(5)
+                    state.is_accessible = check_accessible_cubicles(state.ser1, state.ser2)
                 result["success"] = True
             elif uart0 and uart1 and uart0 in uart_ports and uart1 in uart_ports:
                 state.ser1 = serial.Serial(uart0, 115200)
                 state.ser2 = serial.Serial(uart1, 115200)
                 time.sleep(5)
                 state.is_accessible = check_accessible_cubicles(state.ser1, state.ser2)
+                for _ in range(2):
+                    if state.is_accessible != (1, 1):
+                        break
+                    time.sleep(5)
+                    state.is_accessible = check_accessible_cubicles(state.ser1, state.ser2)
                 result["success"] = True
             else:
                 if DEBUG:
