@@ -287,6 +287,13 @@ def enable_serial_port_interface():
         print("Failed to set serial port interface via raspi-config.")
 
 
+def enable_ssh():
+    print("Enabling SSH server...")
+    subprocess.run(["systemctl", "enable", "ssh"], check=False)
+    subprocess.run(["systemctl", "start", "ssh"], check=False)
+    print("SSH enabled.")
+
+
 def prompt_reboot():
     choice = input("Reboot now? (y/N): ").strip().lower()
     if choice == "y":
@@ -340,6 +347,7 @@ def main():
     modified = modify_config_file()
     print("Enabling serial interface...")
     enable_serial_port_interface()
+    enable_ssh()
     make_wrapper_executable()
     add_wrapper_to_autostart()
     main_switch_to_x11(USER_HOME)
