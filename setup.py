@@ -35,7 +35,8 @@ OVERLAYS = [
     "dtoverlay=uart3,txd_pin=4,rxd_pin=5",
     "dtoverlay=uart4,txd_pin=8,rxd_pin=9",
     "dtoverlay=uart5,txd_pin=12,rxd_pin=13",
-    "dtoverlay=disable-bt"
+    "dtoverlay=disable-bt",
+    "dtoverlay=hifiberry-dac"
 ]
 
 # Modifications to existing config.txt parameters (key=old, value=new)
