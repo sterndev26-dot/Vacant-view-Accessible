@@ -63,7 +63,7 @@ def _set_headphone_mute(muted):
     """Mute/unmute the Pi's analog output to eliminate idle white noise."""
     vol = "0%" if muted else "100%"
     subprocess.run(
-        ['amixer', '-c', 'Headphones', 'set', 'Headphone', vol],
+        ['amixer', '-c', '2', 'set', 'PCM', vol],
         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
     )
 
