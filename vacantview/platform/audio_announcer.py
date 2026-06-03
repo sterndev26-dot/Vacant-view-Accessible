@@ -8,7 +8,7 @@ from vacantview.core.state import state
 import vacantview.config.config as cfg
 
 _lock = threading.Lock()
-_last_trigger = 0.0
+_is_playing = False
 _current_processes = []
 _pir = None
 _sd_pin = None
@@ -76,40 +76,14 @@ def _set_sd_mute(muted):
 
 
 def _play_audio(filepath):
-    global _current_processes
+    global _current_processes, _is_playing
     if not filepath or not os.path.exists(filepath):
         return
     for p in _current_processes:
         if p.poll() is None:
             p.terminate()
     _current_processes = []
-    _set_sd_mute(False)
-    devices = _get_devices()
-    print(f"[AUDIO] Playing {os.path.basename(filepath)} on {devices}")
-    for device in devices:
-        p = subprocess.Popen(
-            ['aplay', '-D', device, filepath],
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL
-        )
-        _current_processes.append(p)
-
-    def _mute_when_done():
-        for p in _current_processes:
-            p.wait()
-        _set_sd_mute(True)
-
-    threading.Thread(target=_mute_when_done, daemon=True).start()
-
-
-def _play_audio_sync(filepath):
-    global _current_processes
-    if not filepath or not os.path.exists(filepath):
-        return
-    for p in _current_processes:
-        if p.poll() is None:
-            p.terminate()
-    _current_processes = []
+    _is_playing = True
     _set_sd_mute(False)
     devices = _get_devices()
     print(f"[AUDIO] Playing {os.path.basename(filepath)} on {devices}")
@@ -122,9 +96,46 @@ def _play_audio_sync(filepath):
         )
         procs.append(p)
     _current_processes = procs
-    for p in procs:
-        p.wait()
-    _set_sd_mute(True)
+
+    def _finish():
+        global _is_playing
+        try:
+            for p in procs:
+                p.wait()
+        finally:
+            _set_sd_mute(True)
+            _is_playing = False
+
+    threading.Thread(target=_finish, daemon=True).start()
+
+
+def _play_audio_sync(filepath):
+    global _current_processes, _is_playing
+    if not filepath or not os.path.exists(filepath):
+        return
+    for p in _current_processes:
+        if p.poll() is None:
+            p.terminate()
+    _current_processes = []
+    _is_playing = True
+    _set_sd_mute(False)
+    devices = _get_devices()
+    print(f"[AUDIO] Playing {os.path.basename(filepath)} on {devices}")
+    procs = []
+    for device in devices:
+        p = subprocess.Popen(
+            ['aplay', '-D', device, filepath],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL
+        )
+        procs.append(p)
+    _current_processes = procs
+    try:
+        for p in procs:
+            p.wait()
+    finally:
+        _set_sd_mute(True)
+        _is_playing = False
 
 
 def _play_both():
@@ -141,12 +152,9 @@ def _play_both():
 
 
 def _on_motion():
-    global _last_trigger
     with _lock:
-        now = time.monotonic()
-        if now - _last_trigger < cfg.AUDIO_COOLDOWN:
+        if _is_playing:
             return
-        _last_trigger = now
         mode = state.current_mode
         if mode == 'both_accessible':
             if not (state.clean_mode_button_1 and state.clean_mode_button_2):
