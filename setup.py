@@ -35,19 +35,18 @@ OVERLAYS = [
     "dtoverlay=uart3,txd_pin=4,rxd_pin=5",
     "dtoverlay=uart4,txd_pin=8,rxd_pin=9",
     "dtoverlay=uart5,txd_pin=12,rxd_pin=13",
-    "dtoverlay=disable-bt"
+    "dtoverlay=disable-bt",
+    "dtoverlay=hifiberry-dac"
 ]
 
 # Modifications to existing config.txt parameters (key=old, value=new)
 MODIFICATIONS = {
-    "dtparam=audio=off": "dtparam=audio=on",
+    "dtparam=audio=on": "dtparam=audio=off",
     "camera_auto_detect=1": "camera_auto_detect=0",
 }
 
 # Overlays to remove from config.txt if present
-OVERLAYS_REMOVE = [
-    "dtoverlay=hifiberry-dac",
-]
+OVERLAYS_REMOVE = []
 
 
 def _chown_to_user(path):

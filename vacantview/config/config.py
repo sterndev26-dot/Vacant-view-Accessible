@@ -65,6 +65,9 @@ BUTTON_PIN_2 = int(os.getenv("PIN_BUTTON_2"))
 
 _pir_raw = os.getenv("PIN_PIR", "").strip()
 PIR_PIN = int(_pir_raw) if _pir_raw and _pir_raw != "0" else None
+
+_mute_raw = os.getenv("MUTE_PIN", "").strip()
+MUTE_PIN = int(_mute_raw) if _mute_raw and _mute_raw != "0" else None
 AUDIO_VACANT = os.getenv("AUDIO_VACANT", "")
 AUDIO_OCCUPIED = os.getenv("AUDIO_OCCUPIED", "")
 AUDIO_COOLDOWN = float(os.getenv("AUDIO_COOLDOWN", "10"))

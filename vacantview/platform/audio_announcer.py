@@ -11,6 +11,7 @@ _lock = threading.Lock()
 _last_trigger = 0.0
 _current_processes = []
 _pir = None
+_sd_pin = None
 
 
 def _detect_devices():
@@ -59,15 +60,19 @@ def _is_accessible_vacant():
     return any(v == '0' for v in acc.values())
 
 
-def _set_headphone_mute(muted):
-    """Disable/enable the bcm2835 audio driver to fully silence idle noise."""
-    if muted:
-        subprocess.run(['sudo', 'modprobe', '-r', 'snd_bcm2835'],
-                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    else:
-        subprocess.run(['sudo', 'modprobe', 'snd_bcm2835'],
-                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        time.sleep(0.5)
+def _set_sd_mute(muted):
+    """Control MAX98357A SD pin: LOW=shutdown (silent), HIGH=active."""
+    global _sd_pin
+    if _sd_pin is None:
+        return
+    try:
+        if muted:
+            _sd_pin.off()   # GPIO LOW → MAX98357A shutdown → silence
+        else:
+            _sd_pin.on()    # GPIO HIGH → MAX98357A active
+            time.sleep(0.05)
+    except Exception as e:
+        print(f"[AUDIO] SD pin error: {e}")
 
 
 def _play_audio(filepath):
@@ -78,9 +83,9 @@ def _play_audio(filepath):
         if p.poll() is None:
             p.terminate()
     _current_processes = []
+    _set_sd_mute(False)
     devices = _get_devices()
     print(f"[AUDIO] Playing {os.path.basename(filepath)} on {devices}")
-    _set_headphone_mute(False)
     for device in devices:
         p = subprocess.Popen(
             ['aplay', '-D', device, filepath],
@@ -92,7 +97,7 @@ def _play_audio(filepath):
     def _mute_when_done():
         for p in _current_processes:
             p.wait()
-        _set_headphone_mute(True)
+        _set_sd_mute(True)
 
     threading.Thread(target=_mute_when_done, daemon=True).start()
 
@@ -105,9 +110,9 @@ def _play_audio_sync(filepath):
         if p.poll() is None:
             p.terminate()
     _current_processes = []
+    _set_sd_mute(False)
     devices = _get_devices()
     print(f"[AUDIO] Playing {os.path.basename(filepath)} on {devices}")
-    _set_headphone_mute(False)
     procs = []
     for device in devices:
         p = subprocess.Popen(
@@ -119,7 +124,7 @@ def _play_audio_sync(filepath):
     _current_processes = procs
     for p in procs:
         p.wait()
-    _set_headphone_mute(True)
+    _set_sd_mute(True)
 
 
 def _play_both():
@@ -154,12 +159,18 @@ def _on_motion():
 
 
 def start():
-    global _pir
+    global _pir, _sd_pin
     if not cfg.PIR_PIN:
         return
 
-    # Mute on startup to prevent idle white noise
-    _set_headphone_mute(True)
+    # Initialize SD pin for MAX98357A mute control
+    if cfg.MUTE_PIN:
+        try:
+            from gpiozero import OutputDevice
+            _sd_pin = OutputDevice(cfg.MUTE_PIN, initial_value=False)
+            print(f"[AUDIO] SD mute pin ready on GPIO {cfg.MUTE_PIN} (MAX98357A shutdown)")
+        except Exception as e:
+            print(f"[AUDIO] SD pin init failed: {e}")
 
     devices = _get_devices()
     print(f"[AUDIO] Using devices: {devices}")
