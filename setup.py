@@ -40,8 +40,14 @@ OVERLAYS = [
 
 # Modifications to existing config.txt parameters (key=old, value=new)
 MODIFICATIONS = {
+    "dtparam=audio=off": "dtparam=audio=on",
     "camera_auto_detect=1": "camera_auto_detect=0",
 }
+
+# Overlays to remove from config.txt if present
+OVERLAYS_REMOVE = [
+    "dtoverlay=hifiberry-dac",
+]
 
 
 def _chown_to_user(path):
@@ -254,6 +260,9 @@ def modify_config_file():
     new_lines = []
     existing = set(lines)
     for line in lines:
+        # Skip overlays that should be removed
+        if any(line.strip() == r or line.strip().startswith(r) for r in OVERLAYS_REMOVE):
+            continue
         modified = False
         for old, new in MODIFICATIONS.items():
             if line.strip().startswith(old):
