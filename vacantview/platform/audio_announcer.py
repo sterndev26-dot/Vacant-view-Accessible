@@ -60,12 +60,14 @@ def _is_accessible_vacant():
 
 
 def _set_headphone_mute(muted):
-    """Mute/unmute the Pi's analog output to eliminate idle white noise."""
-    action = 'mute' if muted else 'unmute'
-    subprocess.run(
-        ['amixer', '-c', 'Headphones', 'set', 'PCM', action],
-        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
-    )
+    """Disable/enable the bcm2835 audio driver to fully silence idle noise."""
+    if muted:
+        subprocess.run(['sudo', 'modprobe', '-r', 'snd_bcm2835'],
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    else:
+        subprocess.run(['sudo', 'modprobe', 'snd_bcm2835'],
+                       stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        time.sleep(0.5)
 
 
 def _play_audio(filepath):
