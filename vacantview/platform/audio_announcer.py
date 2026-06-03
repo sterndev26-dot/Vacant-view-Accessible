@@ -156,6 +156,9 @@ def start():
     if not cfg.PIR_PIN:
         return
 
+    # Mute on startup to prevent idle white noise
+    _set_headphone_mute(True)
+
     devices = _get_devices()
     print(f"[AUDIO] Using devices: {devices}")
 
