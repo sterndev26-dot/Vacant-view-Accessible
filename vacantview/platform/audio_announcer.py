@@ -59,6 +59,15 @@ def _is_accessible_vacant():
     return any(v == '0' for v in acc.values())
 
 
+def _set_headphone_mute(muted):
+    """Mute/unmute the Pi's analog output to eliminate idle white noise."""
+    vol = "0%" if muted else "100%"
+    subprocess.run(
+        ['amixer', '-c', 'Headphones', 'set', 'Headphone', vol],
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+    )
+
+
 def _play_audio(filepath):
     global _current_processes
     if not filepath or not os.path.exists(filepath):
@@ -69,6 +78,7 @@ def _play_audio(filepath):
     _current_processes = []
     devices = _get_devices()
     print(f"[AUDIO] Playing {os.path.basename(filepath)} on {devices}")
+    _set_headphone_mute(False)
     for device in devices:
         p = subprocess.Popen(
             ['aplay', '-D', device, filepath],
@@ -76,6 +86,13 @@ def _play_audio(filepath):
             stderr=subprocess.DEVNULL
         )
         _current_processes.append(p)
+
+    def _mute_when_done():
+        for p in _current_processes:
+            p.wait()
+        _set_headphone_mute(True)
+
+    threading.Thread(target=_mute_when_done, daemon=True).start()
 
 
 def _play_audio_sync(filepath):
@@ -88,6 +105,7 @@ def _play_audio_sync(filepath):
     _current_processes = []
     devices = _get_devices()
     print(f"[AUDIO] Playing {os.path.basename(filepath)} on {devices}")
+    _set_headphone_mute(False)
     procs = []
     for device in devices:
         p = subprocess.Popen(
@@ -99,6 +117,7 @@ def _play_audio_sync(filepath):
     _current_processes = procs
     for p in procs:
         p.wait()
+    _set_headphone_mute(True)
 
 
 def _play_both():
