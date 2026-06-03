@@ -300,6 +300,29 @@ def enable_ssh():
     print("SSH enabled.")
 
 
+def git_pull():
+    print("Pulling latest code from GitHub...")
+    result = subprocess.run(['git', '-C', str(SCRIPT_DIR), 'pull'], check=False)
+    if result.returncode == 0:
+        print("Code updated successfully.")
+    else:
+        print("git pull failed or no remote configured — continuing with local code.")
+
+
+def configure_alsa():
+    print("Configuring ALSA audio volume...")
+    subprocess.run(['amixer', '-c', 'Headphones', 'set', 'PCM', '100%'], check=False)
+    subprocess.run(['alsactl', 'store'], check=False)
+    print("ALSA volume set to 100% and saved.")
+
+
+def cleanup_asound_conf():
+    path = "/etc/asound.conf"
+    if os.path.exists(path):
+        os.remove(path)
+        print(f"Removed {path} (leftover from previous audio fix).")
+
+
 def prompt_reboot():
     choice = input("Reboot now? (y/N): ").strip().lower()
     if choice == "y":
@@ -346,6 +369,7 @@ def main():
         return
 
     # Full setup flow
+    git_pull()
     create_venv_and_install_deps()
     create_wrapper_script()
     backup_config()
@@ -354,6 +378,8 @@ def main():
     print("Enabling serial interface...")
     enable_serial_port_interface()
     enable_ssh()
+    cleanup_asound_conf()
+    configure_alsa()
     make_wrapper_executable()
     add_wrapper_to_autostart()
     main_switch_to_x11(USER_HOME)
