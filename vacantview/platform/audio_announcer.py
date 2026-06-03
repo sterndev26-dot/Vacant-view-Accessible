@@ -61,9 +61,9 @@ def _is_accessible_vacant():
 
 def _set_headphone_mute(muted):
     """Mute/unmute the Pi's analog output to eliminate idle white noise."""
-    vol = "0%" if muted else "100%"
+    action = 'mute' if muted else 'unmute'
     subprocess.run(
-        ['amixer', '-c', '2', 'set', 'PCM', vol],
+        ['amixer', '-c', 'Headphones', 'set', 'PCM', action],
         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
     )
 
