@@ -1,23 +1,55 @@
 import serial
+import time
 
+import vacantview.config.config as cfg
 from vacantview.core.state import state
 from vacantview.ui.gui_elements import CE
 
 update_elements = CE()
 
+# Last time each address was heard from (address → monotonic timestamp)
+_last_seen = {}
+_watchdog_last_check = 0.0
+_initial_poll_done   = False
+
 
 # ---------------------------------------------------------------------------
-# Outgoing request
+# Outgoing requests
 # ---------------------------------------------------------------------------
 
-def get_data():
+def _poll_broadcast():
+    """One-time broadcast to discover all nodes on startup."""
     cmd = '*AT+NODE_MSG,FFFF,@ST;##'
     for ser in (state.ser1, state.ser2):
         if ser and ser.is_open:
             try:
                 ser.write(cmd.encode())
             except Exception as e:
-                print(f"[UART] send error: {e}")
+                print(f"[UART] broadcast error: {e}")
+
+
+def _poll_device(address, ser):
+    """Targeted poll for a single silent device."""
+    if not ser or not ser.is_open:
+        return
+    try:
+        cmd = f'*AT+NODE_MSG,{address},@ST;##'
+        ser.write(cmd.encode())
+        print(f"[UART] watchdog poll → {address}")
+    except Exception as e:
+        print(f"[UART] poll error {address}: {e}")
+
+
+def _watchdog_check():
+    """Poll devices that haven't been heard from for WATCHDOG_TIMEOUT seconds."""
+    now     = time.monotonic()
+    timeout = getattr(cfg, 'WATCHDOG_TIMEOUT', 2700)
+    for address in state.addresses_string:
+        if now - _last_seen.get(address, 0) >= timeout:
+            _poll_device(address, state.ser1)
+    for address in state.addresses_string_WOMEN:
+        if now - _last_seen.get(address, 0) >= timeout:
+            _poll_device(address, state.ser2)
 
 
 # ---------------------------------------------------------------------------
@@ -77,6 +109,7 @@ def process_node_data_men(msg):
     if result is None:
         return
     address, type_str, status = result
+    _last_seen[address] = time.monotonic()
     if address not in state.addresses_string:
         state.addresses_string.append(address)
     if type_str == '*ST-':
@@ -90,6 +123,7 @@ def process_node_data_women(msg):
     if result is None:
         return
     address, type_str, status = result
+    _last_seen[address] = time.monotonic()
     if address not in state.addresses_string_WOMEN:
         state.addresses_string_WOMEN.append(address)
     if type_str == '*ST-':
@@ -165,16 +199,28 @@ def _draw_indicators(tag_green, tag_red, free, occupied, total):
 
 def read_all_data():
     """
-    Poll both UART ports, read responses, update UI.
-    Scheduled via win.after(200, read_all_data) — never blocks.
+    Listen for incoming UART messages and update UI every 200ms.
+    No constant polling — nodes send updates proactively.
+    Watchdog polls silent devices after WATCHDOG_TIMEOUT seconds.
     """
+    global _initial_poll_done, _watchdog_last_check
     if state.flag_monitor_thread:
         return
     try:
-        # Always poll and read BOTH ports every cycle
-        get_data()
+        # Single broadcast on startup to wake all nodes
+        if not _initial_poll_done:
+            _poll_broadcast()
+            _initial_poll_done = True
+
+        # Read incoming messages from both ports
         _read_port(state.ser1, process_node_data_men,   'MEN')
         _read_port(state.ser2, process_node_data_women, 'WOMEN')
+
+        # Watchdog: check every 60s, poll silent devices
+        now = time.monotonic()
+        if now - _watchdog_last_check >= 60:
+            _watchdog_last_check = now
+            _watchdog_check()
 
         # Update UI for the selected mode
         mode = state.string_genderSelect.get()
