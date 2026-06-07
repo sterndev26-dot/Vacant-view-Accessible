@@ -69,8 +69,8 @@ def _set_sd_mute(muted):
         if muted:
             _sd_pin.off()   # GPIO LOW → MAX98357A shutdown → silence
         else:
-            _sd_pin.on()    # GPIO HIGH → MAX98357A active
-            time.sleep(0.05)
+            _sd_pin.on()    # GPIO HIGH → PCM5102A active
+            time.sleep(0.2)
     except Exception as e:
         print(f"[AUDIO] SD pin error: {e}")
 
