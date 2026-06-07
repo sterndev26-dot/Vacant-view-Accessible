@@ -50,32 +50,30 @@ def _read_port(ser, process_fn, label):
 
 def process_node_data_men(words):
     index = words.index('AT+NODE')
-    if words[index+8: index+11] != 'MSG':
-        return
     address = words[index+13: index+16]
-    if words[index+17: index+21] == '*ST-':
-        if address not in state.addresses_string:
-            state.addresses_string.append(address)
-        state.OccupiedCounter_string[address] = '0' if words[index+21] == '1' else '1'
-    elif words[index+17: index+21] == '*AS-':
-        if address not in state.addresses_string:
-            state.addresses_string.append(address)
-        state.OccupiedCounter_string_MEN_acc[address] = '0' if words[index+21] == '1' else '1'
+    if address == 'FFF':  # broadcast echo — ignore
+        return
+    if address not in state.addresses_string:
+        state.addresses_string.append(address)
+    if words[index+8: index+11] == 'MSG':
+        if words[index+17: index+21] == '*ST-':
+            state.OccupiedCounter_string[address] = '0' if words[index+21] == '1' else '1'
+        elif words[index+17: index+21] == '*AS-':
+            state.OccupiedCounter_string_MEN_acc[address] = '0' if words[index+21] == '1' else '1'
 
 
 def process_node_data_women(words):
     index = words.index('AT+NODE')
-    if words[index+8: index+11] != 'MSG':
-        return
     address = words[index+13: index+16]
-    if words[index+17: index+21] == '*ST-':
-        if address not in state.addresses_string_WOMEN:
-            state.addresses_string_WOMEN.append(address)
-        state.OccupiedCounter_string_WOMEN[address] = '0' if words[index+21] == '1' else '1'
-    elif words[index+17: index+21] == '*AS-':
-        if address not in state.addresses_string_WOMEN:
-            state.addresses_string_WOMEN.append(address)
-        state.OccupiedCounter_string_WOMEN_acc[address] = '0' if words[index+21] == '1' else '1'
+    if address == 'FFF':  # broadcast echo — ignore
+        return
+    if address not in state.addresses_string_WOMEN:
+        state.addresses_string_WOMEN.append(address)
+    if words[index+8: index+11] == 'MSG':
+        if words[index+17: index+21] == '*ST-':
+            state.OccupiedCounter_string_WOMEN[address] = '0' if words[index+21] == '1' else '1'
+        elif words[index+17: index+21] == '*AS-':
+            state.OccupiedCounter_string_WOMEN_acc[address] = '0' if words[index+21] == '1' else '1'
 
 
 # ---------------------------------------------------------------------------
