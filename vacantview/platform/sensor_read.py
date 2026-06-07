@@ -17,8 +17,8 @@ _initial_poll_done   = False
 # Outgoing requests
 # ---------------------------------------------------------------------------
 
-def _poll_broadcast():
-    """One-time broadcast to discover all nodes on startup."""
+def get_data():
+    """Broadcast poll to all nodes (used on startup and by external callers)."""
     cmd = '*AT+NODE_MSG,FFFF,@ST;##'
     for ser in (state.ser1, state.ser2):
         if ser and ser.is_open:
@@ -26,6 +26,8 @@ def _poll_broadcast():
                 ser.write(cmd.encode())
             except Exception as e:
                 print(f"[UART] broadcast error: {e}")
+
+_poll_broadcast = get_data
 
 
 def _poll_device(address, ser):
