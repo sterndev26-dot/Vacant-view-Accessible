@@ -48,32 +48,54 @@ def _read_port(ser, process_fn, label):
 # Message parsers
 # ---------------------------------------------------------------------------
 
-def process_node_data_men(words):
-    index = words.index('AT+NODE')
-    address = words[index+13: index+16]
-    if address == 'FFF':  # broadcast echo — ignore
+def _parse_node_msg(msg):
+    """
+    Parse AT+NODE_MSG message into (address, type, status).
+    Handles any prefix (*, + or none) and any address length.
+    Format: [*]AT+NODE_MSG,<address>,<*ST-|*AS-><0|1>
+    Returns (address, type_str, status_char) or None if invalid.
+    """
+    try:
+        parts = msg.split(',')
+        if len(parts) < 3 or 'AT+NODE' not in parts[0]:
+            return None
+        address = parts[1].strip()
+        if not address or address.upper() in ('FFFF', 'FFF'):
+            return None
+        type_val = parts[2].strip()
+        if len(type_val) < 5:
+            return None
+        type_str = type_val[:4]    # '*ST-' or '*AS-'
+        status    = type_val[4]    # '0' or '1'
+        return address, type_str, status
+    except Exception:
+        return None
+
+
+def process_node_data_men(msg):
+    result = _parse_node_msg(msg)
+    if result is None:
         return
+    address, type_str, status = result
     if address not in state.addresses_string:
         state.addresses_string.append(address)
-    if words[index+8: index+11] == 'MSG':
-        if words[index+17: index+21] == '*ST-':
-            state.OccupiedCounter_string[address] = '0' if words[index+21] == '1' else '1'
-        elif words[index+17: index+21] == '*AS-':
-            state.OccupiedCounter_string_MEN_acc[address] = '0' if words[index+21] == '1' else '1'
+    if type_str == '*ST-':
+        state.OccupiedCounter_string[address] = '0' if status == '1' else '1'
+    elif type_str == '*AS-':
+        state.OccupiedCounter_string_MEN_acc[address] = '0' if status == '1' else '1'
 
 
-def process_node_data_women(words):
-    index = words.index('AT+NODE')
-    address = words[index+13: index+16]
-    if address == 'FFF':  # broadcast echo — ignore
+def process_node_data_women(msg):
+    result = _parse_node_msg(msg)
+    if result is None:
         return
+    address, type_str, status = result
     if address not in state.addresses_string_WOMEN:
         state.addresses_string_WOMEN.append(address)
-    if words[index+8: index+11] == 'MSG':
-        if words[index+17: index+21] == '*ST-':
-            state.OccupiedCounter_string_WOMEN[address] = '0' if words[index+21] == '1' else '1'
-        elif words[index+17: index+21] == '*AS-':
-            state.OccupiedCounter_string_WOMEN_acc[address] = '0' if words[index+21] == '1' else '1'
+    if type_str == '*ST-':
+        state.OccupiedCounter_string_WOMEN[address] = '0' if status == '1' else '1'
+    elif type_str == '*AS-':
+        state.OccupiedCounter_string_WOMEN_acc[address] = '0' if status == '1' else '1'
 
 
 # ---------------------------------------------------------------------------
