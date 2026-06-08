@@ -1,0 +1,109 @@
+================================================================================
+                    VacantView - תהליך התקנה
+================================================================================
+
+דרישות מקדימות
+---------------
+- Raspberry Pi 4
+- כרטיס SD עם Raspberry Pi OS מותקן
+- חיבור לאינטרנט
+- מסך + מקלדת (להתקנה ראשונה)
+
+
+שלב 1 - הפעלת SSH
+------------------
+על ה-Pi (ישירות):
+    sudo systemctl enable ssh
+    sudo systemctl start ssh
+
+בדיקת כתובת IP:
+    hostname -I
+
+
+שלב 2 - שכפול הקוד
+-------------------
+    cd ~/Desktop
+    git clone https://github.com/sterndev26-dot/Vacant-view-Accessible.git WC
+
+
+שלב 3 - התקנה
+--------------
+    cd ~/Desktop/WC
+    sudo python3 setup.py
+
+בחר: 1 (Full setup)
+בסוף: y (ריבוט)
+
+    *** ההתקנה כוללת אוטומטית ***
+    - git pull (עדכון קוד)
+    - התקנת תלויות Python
+    - הגדרת UART (ttyAMA3/4/5)
+    - הגדרת I2S אודיו (hifiberry-dac)
+    - הפעלת SSH
+    - הגדרת דסקטופ LXDE עם autologin
+    - הפעלת האפליקציה עם autostart
+
+
+שלב 4 - חיבורי חומרה
+----------------------
+
+UART (תקשורת עם נודים):
+    UART3: GPIO 4 (TX), GPIO 5 (RX)   → שרת גברים
+    UART4: GPIO 8 (TX), GPIO 9 (RX)   → שרת נשים
+    UART5: GPIO 12 (TX), GPIO 13 (RX) → שרת נוסף
+
+PCM5102A (DAC אודיו I2S):
+    GPIO 18 (פין 12)  → BCK
+    GPIO 19 (פין 35)  → LCK
+    GPIO 21 (פין 40)  → DIN
+    GPIO 24 (פין 18)  → XSMT (מיתוק)
+    פין 2   (5V)      → VIN
+    פין 6   (GND)     → GND, SCK, FMT, FLT, DEMP
+
+PCM5102A → TPA3116 (מגבר):
+    LOUT → L IN+
+    ROUT → R IN+
+    AGND → L IN- ו R IN-
+
+TPA3116:
+    VCC+ → ספק 12V (+)
+    VCC- → ספק 12V (-)
+    L+/L- → רמקול
+
+PIR חיישן תנועה:
+    GPIO 23 (פין 16) → PIR OUT
+    פין 1   (3.3V)   → PIR VCC
+    פין 6   (GND)    → PIR GND
+
+כפתורי ניקיון:
+    GPIO 27 (פין 13) → כפתור גברים
+    GPIO 17 (פין 11) → כפתור נשים
+
+כניסות נוכחות:
+    GPIO 10 (פין 19) → כניסת גברים
+    GPIO 6  (פין 31) → כניסת נשים
+
+
+שלב 5 - עדכון עתידי
+--------------------
+מ-Windows (SSH):
+    ssh stc@<IP>
+    cd ~/Desktop/WC && sudo python3 setup.py
+    בחר 1 → y
+
+או ישירות:
+    cd ~/Desktop/WC && git pull
+
+
+תקלות נפוצות
+-------------
+GPIO busy:
+    pkill -9 -f run.py; pkill -9 lgd; sleep 3
+
+SSH key changed:
+    ssh-keygen -R <IP>
+
+אין קול:
+    aplay -l   (בדוק שמופיע sndrpihifiberry)
+
+================================================================================
