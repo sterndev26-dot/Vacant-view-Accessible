@@ -247,8 +247,8 @@ def open_admin_settings(parent):
     # --- System Page ---
     system_page = tk.Frame(content)
     tk.Label(system_page, text = prepare_text_for_widget(_("System Information")), font=("Arial", 14, "bold")).pack(pady=5)
-    tk.Label(system_page, text="Version: 0.3.6").pack(anchor="w")
-    tk.Label(system_page, text="Last Update: 02.09.2025").pack(anchor="w")
+    tk.Label(system_page, text="Version: 7.0.0").pack(anchor="w")
+    tk.Label(system_page, text="Last Update: 08.06.2026").pack(anchor="w")
     tk.Label(system_page, text="Device ID: -").pack(anchor="w")
     pages["system"] = system_page
 
